@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#3b6ef5">
+<title>考研上岸 · 学习平台（2028）</title>
+<link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><a href="#/" style="color:inherit;text-decoration:none">🎯 考研上岸<span class="brand-sub">2028</span></a></div>
+  <nav id="mainNav">
+    <a href="#/" data-nav="home">仪表盘</a>
+    <a href="#/course/math" data-nav="math">数学二</a>
+    <a href="#/course/english" data-nav="english">英语二</a>
+    <a href="#/course/cs408" data-nav="cs408">408</a>
+    <a href="#/words" data-nav="words">背单词</a>
+    <a href="#/wrongbook" data-nav="wrongbook">错题本</a>
+    <a href="#/plan" data-nav="plan">学习计划</a>
+    <a href="#/settings" data-nav="settings">设置</a>
+  </nav>
+  <span id="userChip" class="user-chip" style="display:none"></span>
+</header>
+<main id="view"><div class="loading">正在加载…</div></main>
+<footer class="foot">
+  纯离线平台 · 数据保存在本机浏览器 · 距考试还有 <b id="footCountdown">—</b> 天 · <a href="#/settings">修改考试日期</a>
+</footer>
+
+<!-- 移动端底部标签栏（桌面端隐藏） -->
+<nav class="bottom-nav" id="bottomNav">
+  <a href="#/" data-bnav="home"><span class="bi">🏠</span>首页</a>
+  <a href="#/course/math" data-bnav="math"><span class="bi">∑</span>数学</a>
+  <a href="#/course/english" data-bnav="english"><span class="bi">A</span>英语</a>
+  <a href="#/course/cs408" data-bnav="cs408"><span class="bi">⌨</span>408</a>
+  <a href="#/more" data-bnav="more"><span class="bi">☰</span>我的</a>
+</nav>
+
+<!-- AI 助手抽屉 -->
+<div id="aiPanel" class="ai-panel hidden" aria-label="AI 助手">
+  <div class="ai-head">
+    <span>🤖 AI 学习助手</span>
+    <div>
+      <button class="btn btn-ghost btn-sm" id="aiClear">清空</button>
+      <button class="btn btn-ghost btn-sm" id="aiClose">✕</button>
+    </div>
+  </div>
+  <div class="ai-tabs" id="aiTabs">
+    <button data-tab="ask" class="on">问 AI</button>
+    <button data-tab="word">单词助手</button>
+    <button data-tab="sent">句子分析</button>
+  </div>
+  <div class="ai-body" id="aiBody"></div>
+  <div class="ai-inputrow">
+    <textarea id="aiInput" rows="2" placeholder="输入你的问题 / 单词 / 英文句子…（Shift+Enter 换行）"></textarea>
+    <button class="btn btn-primary" id="aiSend">发送</button>
+  </div>
+</div>
+<button id="aiFab" class="ai-fab" title="AI 助手">🤖<span>问 AI</span></button>
+
+<script src="assets/js/ai.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
