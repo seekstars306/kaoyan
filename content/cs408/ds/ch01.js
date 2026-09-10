@@ -19,10 +19,10 @@ typedef struct {
 <p class="muted">动态分配版用 <code>int *data</code> + malloc，考得少。</p>`],
 ['def', '核心操作与特性',
 `<p><b>① 按位查找：</b>取第 i 个元素，直接 <code>L.data[i-1]</code>，O(1)。</p>
-<p><b>② 按值查找：</b>从头顺序比较，平均比较 (n+1)/2 次，O(n)。</p>
-<p><b>③ 插入（第 i 位插 x）：</b>第 i 到第 n 个元素<b>全部后移</b>。平均移动 n/2 次，O(n)；表满则失败。</p>
-<p><b>④ 删除（删第 i 个）：</b>第 i+1 到第 n 个<b>全部前移</b>。平均移动 (n-1)/2 次，O(n)。</p>
-<p><b>⑤ 存储密度 = 1</b>（无指针开销）；<b>存取方式：随机存取</b>——这两条是选择题常客。</p>
+<p><b>② 按值查找：</b>从头顺序比较，O(n)。只有在“查找成功且每个位置等概率”时，平均比较次数才是 $(n+1)/2$。</p>
+<p><b>③ 插入（第 i 位插 x）：</b>第 i 到第 n 个元素<b>全部后移</b>，移动 $n-i+1$ 次；若 n+1 个合法插入位置等概率，平均移动 n/2 次。表满则失败。</p>
+<p><b>④ 删除（删第 i 个）：</b>第 i+1 到第 n 个<b>全部前移</b>，移动 $n-i$ 次；若 n 个删除位置等概率，平均移动 $(n-1)/2$ 次。</p>
+<p><b>⑤ 存储密度高：</b>元素区没有逐结点指针开销；若忽略顺序表的长度等描述信息，教材常称元素存储密度为 1。其<b>存取方式是随机存取</b>。</p>
 <pre class="code">/* 插入核心代码 */
 for (int j = L.length; j &gt;= i; j--)   /* 从后往前挪，防覆盖 */
     L.data[j] = L.data[j-1];
@@ -33,12 +33,12 @@ L.length++;</pre>`],
 <p>第 30~100 个元素共 <b>71 个</b>后移。公式：插入移动 n-i+1 个。</p>
 <p>若删除第 30 个：第 31~100 共 <b>70 个</b>前移。公式：删除移动 n-i 个。</p></div>
 <div class="ex-box"><div class="ex-t">例 2（综合题）设计算法：删除顺序表中所有值等于 x 的元素，要求 O(n) 时间 O(1) 空间</div>
-<pre class="code">void del_x(SqList &amp;L, int x) {
-    int k = 0;                       /* k 记录不等于 x 的元素个数 */
-    for (int i = 0; i &lt; L.length; i++)
-        if (L.data[i] != x)
-            L.data[k++] = L.data[i]; /* 不等 x 的前移覆盖 */
-    L.length = k;
+<pre class="code">void del_x(SqList *L, int x) {
+    int k = 0;                         /* k 记录不等于 x 的元素个数 */
+    for (int i = 0; i &lt; L-&gt;length; i++)
+        if (L-&gt;data[i] != x)
+            L-&gt;data[k++] = L-&gt;data[i]; /* 不等 x 的前移覆盖 */
+    L-&gt;length = k;
 }</pre>
 <p class="muted">一次扫描原地覆盖——顺序表综合算法题的标准解法风格。</p></div>`],
 ['warn', '易错点',
@@ -80,24 +80,24 @@ p-&gt;next = q-&gt;next;
 free(q);</pre>
 <p><b>⑤ 复杂度：</b>查找/定位 O(n)，定位后插入删除 O(1)；存储密度 &lt; 1（指针开销）。</p>`],
 ['ex', '例题精讲',
-`<div class="ex-box"><div class="ex-t">例 1（经典算法）单链表就地逆置</div>
-<pre class="code">void Reverse(LinkList &amp;L) {
-    LNode *p = L-&gt;next, *r;   /* p 工作指针 */
+`<div class="ex-box"><div class="ex-t">例 1（经典算法）带头结点单链表就地逆置</div>
+<pre class="code">void Reverse(LinkList L) {
+    LNode *p = L-&gt;next, *r;
     L-&gt;next = NULL;
-    while (p) {
-        r = p-&gt;next;          /* 先保住后继 */
-        p-&gt;next = L-&gt;next;    /* 头插 */
+    while (p != NULL) {
+        r = p-&gt;next;          /* 先保存后继 */
+        p-&gt;next = L-&gt;next;    /* 再把 p 头插 */
         L-&gt;next = p;
         p = r;
     }
 }</pre>
-<p class="muted">头插法天然逆序——逆置题的万能钥匙。时间 O(n)，空间 O(1)。</p></div>
+<p class="muted">LinkList 本身已是结点指针；带头结点时传入 L 就能修改 L 指向的链。时间 O(n)，额外空间 O(1)。</p></div>
 <div class="ex-box"><div class="ex-t">例 2（经典算法）找两链表公共节点</div>
-<p>两链表在某个节点后合并成 Y 形：先让长表走过"长度差"步，再双指针同步走，第一次相遇即公共起点。时间 O(m+n)。</p></div>`],
+<p>若两个无环单链表共享结点，则从第一个公共结点起后缀完全相同。先让长表走过“长度差”步，再让两个指针同步前进，第一次指针相等处就是公共起点；若最终同时到 NULL，则没有公共结点。时间 O(m+n)，额外空间 O(1)。</p></div>`],
 ['warn', '易错点',
-`<p>• 插入两句<code>s-&gt;next=p-&gt;next; p-&gt;next=s;</code> 顺序颠倒会把 p 后面的链"弄丢"。</p>
-<p>• 操作完必须维护 length（若有的话）与头/尾指针。</p>
-<p>• 释放节点用 free；"删除节点 p"（不知前驱）的技巧：把 p-&gt;next 的值拷给 p 再删后继。</p>`]
+`<p>• 插入两句 <code>s-&gt;next=p-&gt;next; p-&gt;next=s;</code> 不能颠倒，否则会形成自环并丢失原后继。</p>
+<p>• 操作后要维护长度（若结构中有）以及头、尾指针。</p>
+<p>• 只有当 p 不是尾结点，且允许用后继结点的数据覆盖 p 时，才能“把 p-&gt;next 的数据复制给 p，再删除后继”来实现 O(1) 删除；若外部代码依赖结点身份，这也不等价于真正删除原 p。</p>`]
 ],
 quiz: [
 {id:'q1', q:'带头节点的单链表 L 为空的判定条件是？', opts:['L == NULL', 'L-&gt;next == NULL', 'L-&gt;data == 0', 'L-&gt;next == L'], ans:1, exp:'头节点永远存在，看它的 next 是否为空。'},
@@ -116,17 +116,18 @@ secs: [
 `<p><b>双链表 = 双向车道：</b>每个节点同时记 prev 和 next，前后互通。代价：每个节点多一个指针（空间换时间）。</p>
 <blockquote><b>循环链表 = 首尾相接的项链：</b>尾节点的 next 指回头节点。判空：L-&gt;next == L。</blockquote>`],
 ['def', '双链表核心操作',
-`<p><b>① 双链表插入（在 p 后插 s）——四句口诀"先连后断"：</b></p>
+`<p><b>① 双链表插入（在 p 后插 s）：</b>下面四句假设 p 有后继（例如采用带尾哨兵的实现）；普通非循环双链表若 p 是尾结点，应跳过对空后继的 prior 赋值。</p>
 <pre class="code">s-&gt;next = p-&gt;next;
 s-&gt;prior = p;
-p-&gt;next-&gt;prior = s;   /* 后继的左手指向 s */
-p-&gt;next = s;          /* 最后才改 p 的右手 */</pre>
-<p><b>② 双链表删除（删 p 的后继 q）：</b></p>
+p-&gt;next-&gt;prior = s;
+p-&gt;next = s;</pre>
+<p><b>② 双链表删除（删 p 的后继 q）：</b>先确认 q 存在；若 q 不是尾结点，再修改其后继的 prior。</p>
 <pre class="code">q = p-&gt;next;
 p-&gt;next = q-&gt;next;
-q-&gt;next-&gt;prior = p;
+if (q-&gt;next != NULL)
+    q-&gt;next-&gt;prior = p;
 free(q);</pre>
-<p><b>③ 循环单链表应用：</b>设尾指针 r 的循环链表：头 = r-&gt;next-&gt;next，尾 = r，两端操作均 O(1)——"首尾操作频繁"场景的最优解。</p>
+<p><b>③ 带头结点、仅设尾指针 r 的循环单链表：</b>头结点是 <code>r-&gt;next</code>，首个数据结点是 <code>r-&gt;next-&gt;next</code>。表头插入/删除和表尾插入可 O(1)，但删除尾数据结点仍需寻找前驱，为 O(n)。</p>
 <p><b>④ 静态链表：</b>用数组模拟链表（游标代替指针），data + next 下标。无指针语言/外存场景用。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（判断）双链表插入四句打乱顺序，哪个必须在 p-&gt;next=s 之前？</div>
@@ -141,7 +142,7 @@ free(q);</pre>
 ],
 quiz: [
 {id:'q1', q:'双链表在结点 p 之后插入新结点 s，下列哪句<b>不能</b>作为第一步先执行？', opts:['p-&gt;next = s;', 's-&gt;next = p-&gt;next;', 'p-&gt;next-&gt;prior = s;', 's-&gt;prior = p;'], ans:0, exp:'先执行 p-&gt;next=s 会让 p 的原后继"失联"（再也无法修改它的 prior），链就断了。B、C、D 都不破坏任何信息，均可安全先做。口诀：动 p-&gt;next 之前，先安顿原后继。'},
-{id:'q2', q:'设尾指针 r 的循环单链表（带头节点），头节点的位置是？', opts:['r', 'r-&gt;next', 'r-&gt;next-&gt;next', '无法确定'], ans:2, exp:'r 是尾，r-&gt;next 是头节点，r-&gt;next-&gt;next 是第一个数据节点。'}
+{id:'q2', q:'设尾指针 r 的循环单链表（带头节点），头节点的位置是？', opts:['r', 'r-&gt;next', 'r-&gt;next-&gt;next', '无法确定'], ans:1, exp:'r 是尾数据结点，r-&gt;next 才是头结点；非空时 r-&gt;next-&gt;next 是第一个数据结点。'}
 ]
 
 }

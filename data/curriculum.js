@@ -114,7 +114,7 @@ window.CURRICULUM = {
         ]},
         { id:'sych02', title:'扩2 三重积分与曲线曲面积分', shuyi:true, lessons:[
           { id:'2-1', title:'三重积分', shuyi:true },
-          { id:'2-2', title:'对弧长/对坐标的曲线积分', shuyi:true },
+          { id:'2-2', title:'对弧长与对坐标的曲线积分', shuyi:true },
           { id:'2-3', title:'格林公式', shuyi:true },
           { id:'2-4', title:'曲面积分与高斯、斯托克斯公式', shuyi:true }
         ]},

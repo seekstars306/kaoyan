@@ -53,7 +53,7 @@ secs: [
 <blockquote>记忆框架：先分<b>短元音</b>（干脆短促）、<b>长元音</b>（带"波浪线"拉长）、<b>双元音</b>（从一个音滑向另一个音）三族。</blockquote>`],
 ['def', '音标分类表',
 `<p><b>① 短元音 7 个：</b></p>
-<p style="line-height:2.1"><button class="speak-btn" data-speak="i">/ɪ/</button> bird<b>短</b>：it, big　<button class="speak-btn" data-speak="e">/e/</button>：bed, pen　<button class="speak-btn" data-speak="ae">/æ/</button>：cat, apple　<button class="speak-btn" data-speak="o">/ɒ/</button>：dog, box　<button class="speak-btn" data-speak="oo">/ʊ/</button>：book, good　<button class="speak-btn" data-speak="u">/ʌ/</button>：bus, run　<button class="speak-btn" data-speak="er">/ə/</button>：about（最常见，"轻读"音）</p>
+<p style="line-height:2.1"><button class="speak-btn" data-speak="it">/ɪ/</button>：it, big　<button class="speak-btn" data-speak="bed">/e/</button>：bed, pen　<button class="speak-btn" data-speak="cat">/æ/</button>：cat, apple　<button class="speak-btn" data-speak="dog">/ɒ/</button>：dog, box　<button class="speak-btn" data-speak="book">/ʊ/</button>：book, good　<button class="speak-btn" data-speak="bus">/ʌ/</button>：bus, run　<button class="speak-btn" data-speak="about">/ə/</button>：about（非重读音节中很常见）</p>
 <p><b>② 长元音 5 个：</b></p>
 <p style="line-height:2.1"><button class="speak-btn" data-speak="ee">/iː/</button>：see, eat　<button class="speak-btn" data-speak="er">/ɜː/</button>：bird, her　<button class="speak-btn" data-speak="ar">/ɑː/</button>：car, father　<button class="speak-btn" data-speak="or">/ɔː/</button>：door, ball　<button class="speak-btn" data-speak="u">/uː/</button>：food, blue</p>
 <p><b>③ 双元音 8 个：</b></p>
@@ -67,7 +67,7 @@ secs: [
 ['warn', '易错点',
 `<p>• /ɪ/ 与 /iː/、/ʊ/ 与 /uː/ 是不同音素，混读会改词义（ship/sheep）。</p>
 <p>• 双元音要<b>滑动</b>，读成两个断开的音就不像了。</p>
-<p>• /ə/（schwa）只出现在<b>非重读</b>音节，是英语的"呼吸音"，别读重。</p>`]
+<p>• /ə/（schwa）主要出现在<b>非重读</b>音节中，是英语里非常常见的弱读元音；实际发音仍要以词典音标为准。</p>`]
 ],
 quiz: [
 {id:'q1', q:'apple /ˈæpl/ 中的元音是？', opts:['/e/', '/æ/', '/aɪ/', '/ɑː/'], ans:1, exp:'/æ/ 短元音，口大而扁，像被踩到脚的惊叫前半段。'},
@@ -82,8 +82,8 @@ secs: [
 ['why', '为什么学这一节',
 `<p>辅音是音节的"骨架"。清浊对立（/p/ vs /b/）决定词义，两个"雷区音" /θ/ 和 /ð/（咬舌音）是中文没有的，需要专门练。</p>`],
 ['think', '直观理解',
-`<p><b>辅音 = 气流受阻碍的音。</b>阻碍在哪（唇/齿/喉）、怎么阻（爆/擦/鼻）、声带震不震（清/浊），就是分类的三个坐标。</p>
-<blockquote><b>清浊成对</b>记最快：/p-b/、/t-d/、/k-g/、/f-v/、/s-z/、/ʃ-ʒ/、/θ-ð/、/tʃ-dʒ/、/tr-dr/、/ts-dz/。发音部位相同，只差"声带开不开机"——手放喉咙感受震动。</blockquote>`],
+`<p><b>辅音 = 气流在口腔或咽喉中受到不同程度阻碍时形成的音。</b>阻碍部位、阻碍方式以及声带是否振动，是描述辅音的三个常用维度。</p>
+<blockquote>本教材沿用国内英语教学中常见的英式音标分类表。/p-b/、/t-d/、/k-g/、/f-v/、/s-z/、/ʃ-ʒ/、/θ-ð/、/tʃ-dʒ/ 可按清浊成对练习；/tr, dr, ts, dz/ 在这套表中列作“破擦音组合”，但现代语音学通常把它们分析为辅音连缀，而不是四个独立音位。不同词典的英式、美式标音也可能略有差异，应以所用词典及其录音为准。</blockquote>`],
 ['def', '音标分类表',
 `<p><b>① 爆破音 6 个：</b>/p b / <button class="speak-btn" data-speak="pen">pen</button> <button class="speak-btn" data-speak="bag">bag</button>；/t d/ <button class="speak-btn" data-speak="ten">ten</button> <button class="speak-btn" data-speak="dog">dog</button>；/k g/ <button class="speak-btn" data-speak="cat">cat</button> <button class="speak-btn" data-speak="go">go</button></p>
 <p><b>② 摩擦音：</b>/f v/（five, very）、/s z/（see, zoo）、/θ ð/（think 咬舌清音、this 咬舌浊音）、/ʃ ʒ/（she, usually）、/h/（hat）、/r/（red）</p>
@@ -120,8 +120,8 @@ secs: [
 • <b>er/ir/ur</b> = /ɜː/：her, bird, turn　• <b>ar</b> = /ɑː/：car　• <b>or</b> = /ɔː/：for<br>
 • <b>ai/ay</b> = /eɪ/：rain, day　• <b>oi/oy</b> = /ɔɪ/：coin, boy　• <b>ou/ow</b> = /aʊ/：out, cow<br>
 • <b>ch</b> = /tʃ/：chair　• <b>sh</b> = /ʃ/：ship　• <b>th</b> = /θ/ 或 /ð/：think, this　• <b>ph</b> = /f/：photo　• <b>ck</b> = /k/：back　• <b>ng</b> = /ŋ/：sing<br>
-• <b>不发音</b>：k<n>nee</n> 中的 k、comb 中的 b、island 中的 s</p>
-<p><b>重音规律：</b>双音节名词多在<b>前</b>（TEAcher），动词多在<b>后</b>（reCORD）；-tion/-sion 读 /ʃn/ 且重音在其前一音节（naTION）。</p>`],
+• <b>不发音</b>：<b>knee</b> 中的 k、comb 中的 b、island 中的 s</p>
+<p><b>重音提示（只是常见倾向，不是无例外规则）：</b>不少双音节名词重音在前，如 <i>TEAcher</i>；一些同形的名词—动词对会发生重音转换，如名词 <i>REcord</i> 与动词 <i>reCORD</i>。含 -tion/-sion 的词常把主重音放在该后缀前一音节，如 <i>NAtion</i>、<i>deCIsion</i>。生词最终仍应查词典音标。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1 猜读音：cap vs cape</div>
 <p><span class="speak-btn" data-speak="cap">cap</span>：闭音节，/æ/ 短音"帽子"。<span class="speak-btn" data-speak="cape">cape</span>：有魔法 e，/eɪ/ 长音"披风"。一个 e 之差，词义全变。</p></div>

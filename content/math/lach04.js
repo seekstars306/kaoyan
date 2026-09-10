@@ -45,10 +45,10 @@ secs: [
 `<p>$A\\mathbf x=\\mathbf b$（$\\mathbf b\\neq\\mathbf0$）的完整判定（唯一解/无解/无穷解）与"通解 = 特解 + 齐次通解"结构，是线代解答题的固定框架。</p>`],
 ['think', '直观理解',
 `<p><b>增广矩阵说话：</b>把 $b$ 拼进系数矩阵得 $\\bar A$，行变换后看"矛盾行"：</p>
-<blockquote>• $r(\\bar A)=r(A)=n$：没有自由变量 → <b>唯一解</b>；<br>• $r(\\bar A)=r(A)<n$：有自由变量 → <b>无穷多解</b>；<br>• $r(\\bar A)=r(A)+1$：出现 $0=d\\ (d\\neq0)$ 的矛盾行 → <b>无解</b>。</blockquote>
+<blockquote>• $r(\\bar A)=r(A)=n$：没有自由变量 → <b>唯一解</b>；<br>• $r(\\bar A)=r(A)<n$：有自由变量 → <b>无穷多解</b>；<br>• $r(\\bar A)>r(A)$：行化简后出现 $0=d\\ (d\\neq0)$ 的矛盾行 → <b>无解</b>。由于增广矩阵只比 $A$ 多一列，此时实际有 $r(\\bar A)=r(A)+1$。</blockquote>
 <p><b>解的结构像"平移"：</b>非齐次通解 = 齐次通解（过原点的解集）沿一个特解平移——两条平行线/两个平行平面的关系。</p>`],
 ['def', '定义与公式',
-`<p><b>① 判定定理：</b>$r(\\bar A)=r(A)=n$ 唯一解；$<n$ 无穷解；$r(\\bar A)>r(A)$ 无解。</p>
+`<p><b>① 判定定理：</b>设 $A$ 有 $n$ 列。$r(\\bar A)=r(A)=n$ 时有唯一解；$r(\\bar A)=r(A)<n$ 时有无穷多解；$r(\\bar A)>r(A)$ 时无解。</p>
 <p><b>② 解的结构：</b>$\\eta^*$ 为一个特解，$\\xi_1,\\cdots,\\xi_{n-r}$ 为对应齐次的基础解系：</p>
 $$ \\mathbf x=\\eta^*+k_1\\xi_1+\\cdots+k_{n-r}\\xi_{n-r} $$
 <p><b>③ 解的性质：</b>两非齐次解之差是齐次解；$\\eta^*+\\xi$ 仍是非齐次解。</p>`],
@@ -83,7 +83,7 @@ secs: [
 `<p><b>① 公共解两法：</b>联立 $\\begin{pmatrix}A\\\\B\\end{pmatrix}\\mathbf x=\\mathbf0$；或将 I 的通解代入 II。</p>
 <p><b>② 同解充要条件（齐次）：</b></p>
 $$ r(A)=r(B)=r\\begin{pmatrix}A\\\\B\\end{pmatrix} $$
-<p><b>③ 解集包含：</b>A 的解都是 B 的解 $\\iff r(B)\\le r(A)$ 且可表示（$A$ 的基础解系能被 $B$ 的表示）。</p>`],
+<p><b>③ 解集包含：</b>$A\\mathbf x=\\mathbf0$ 的解都是 $B\\mathbf x=\\mathbf0$ 的解，当且仅当 $B$ 的每一行都可由 $A$ 的行向量线性表示；等价地，$r\\begin{pmatrix}A\\\\B\\end{pmatrix}=r(A)$。此时必有 $r(B)\\le r(A)$，但只有这个秩不等式并不充分。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（公共解）求 $\\begin{cases}x_1+x_2=0\\\\ x_2+x_3=0\\end{cases}$ 与 $x_1+x_3=0$ 的公共解</div>
 <p>联立：$x_1=-x_2,\\ x_3=-x_2$，代入第三式：$-x_2-x_2=0\\Rightarrow x_2=0$。</p>

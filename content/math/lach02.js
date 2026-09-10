@@ -19,7 +19,7 @@ secs: [
 <p><b>③ 转置性质：</b>$(AB)^T=B^TA^T$（穿脱原则：先穿的后脱）。$(A+B)^T=A^T+B^T$，$(kA)^T=kA^T$。</p>
 <p><b>④ 重要方阵公式：</b></p>
 $$ (AB)^2=ABAB\\neq A^2B^2;\\qquad (A+B)^2=A^2+AB+BA+B^2 $$
-<p><b>⑤ 单位阵 $E$、数量阵 $kE$ 与任何同阶矩阵可交换。</b></p>`],
+<p><b>⑤ 单位阵 $E$、数量阵 $kE$ 与任何同阶方阵可交换。</b></p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（乘法）$A=\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}$，$B=\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$，求 $AB$ 与 $BA$</div>
 $$ AB=\\begin{pmatrix}2&1\\\\4&3\\end{pmatrix},\\qquad BA=\\begin{pmatrix}3&4\\\\1&2\\end{pmatrix} $$
@@ -35,7 +35,7 @@ $$ AB=\\begin{pmatrix}0&0\\\\0&0\\end{pmatrix}=O $$
 quiz: [
 {id:'q1', q:'$A_{2\\times3}$ 与 $B_{3\\times2}$，则 $AB$ 的尺寸是？', opts:['$2\\times2$', '$3\\times3$', '$2\\times3$', '不可乘'], ans:0, exp:'$A$ 列数 3 = $B$ 行数 3，可乘，结果 $2\\times2$。'},
 {id:'q2', q:'$(AB)^T$ 等于？', opts:['$A^TB^T$', '$B^TA^T$', '$AB$', '$A^{-1}B$'], ans:1, exp:'转置的"穿脱原则"：顺序反转。'},
-{id:'q3', q:'设 $AB=O$，正确的结论是？', opts:['$A=O$ 或 $B=O$', '$\det A=0$ 或 $\det B=0$（方阵时至少一个不可逆）', '$A,B$ 都可逆', '$B=A$'], ans:1, exp:'$AB=O \\Rightarrow |A||B|=0$，故方阵情形至少一个不可逆。但 $A,B$ 本身都可为非零矩阵。'}
+{id:'q3', q:'设 $A,B$ 为同阶方阵且 $AB=O$，正确的结论是？', opts:['$A=O$ 或 $B=O$', '$\\det A=0$ 或 $\\det B=0$（至少一个不可逆）', '$A,B$ 都可逆', '$B=A$'], ans:1, exp:'对 $AB=O$ 两边取行列式：$\\det A\\cdot\\det B=0$，故至少一个行列式为 0、至少一个矩阵不可逆。但 $A,B$ 本身都可以是非零矩阵。'}
 ]
 
 },
@@ -53,7 +53,7 @@ secs: [
 <p><b>② 运算性质：</b></p>
 $$ (AB)^{-1}=B^{-1}A^{-1},\\quad (A^T)^{-1}=(A^{-1})^T,\\quad (kA)^{-1}=\\frac{1}{k}A^{-1}\\ (k\\neq0) $$
 $$ (A^{-1})^{-1}=A,\\qquad \\det A^{-1}=\\frac{1}{\\det A} $$
-<p><b>③ 常用二阶求逆公式（快）：</b>$\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}^{-1}=\\dfrac{1}{ad-bc}\\begin{pmatrix}d&-b\\\\-c&a\\end{pmatrix}$（"主换位、副变号"）。</p>
+<p><b>③ 常用二阶求逆公式（快）：</b>当 $ad-bc\\neq0$ 时，$\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}^{-1}=\\dfrac{1}{ad-bc}\\begin{pmatrix}d&-b\\\\-c&a\\end{pmatrix}$（“主换位、副变号”）。</p>
 <p><b>④ 矩阵方程：</b>$AX=B\\Rightarrow X=A^{-1}B$；$XA=B\\Rightarrow X=BA^{-1}$（左右位置不能乱）。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（二阶求逆）求 $A=\\begin{pmatrix}2&1\\\\3&2\\end{pmatrix}^{-1}$</div>
@@ -122,15 +122,16 @@ secs: [
 `<p>秩是矩阵"信息含量"的度量：它决定方程组解的结构、向量组相关性、可否对角化。抽象证明题里，秩的公式库就是"武器库"。</p>`],
 ['think', '直观理解',
 `<p><b>秩 = 最大无关行（列）数 = 有效信息条数。</b>行变换把矩阵化成行阶梯形，非零行的行数就是秩——冗余行（可被其他行线性表示的"废话"）都被清成零行。</p>
-<blockquote>$r(A)=n$（满秩）方阵可逆；$r(A)<n$ 则"信息不满"，方程组有无穷多解。</blockquote>`],
+<blockquote>$r(A)=n$ 的 $n$ 阶方阵可逆；$r(A)<n$ 时，齐次方程组 $A\\mathbf x=\\mathbf0$ 有非零解。对非齐次方程组，还必须比较系数矩阵与增广矩阵的秩，不能只凭 $r(A)<n$ 断定有无穷多解。</blockquote>`],
 ['def', '定义与公式',
 `<p><b>① 定义：</b>非零子式的最高阶数；行阶梯形的非零行数。</p>
-<p><b>② 常用公式（背熟）：</b></p>
+<p><b>② 常用公式（背熟）：</b>以下 $r(A)=r(A^T)=r(A^TA)$ 按本教材默认的实矩阵讨论；复矩阵应把 $A^T$ 换成共轭转置 $A^H$，即 $r(A)=r(A^H A)$。</p>
 $$ r(A)=r(A^T)=r(A^TA) $$
 $$ r(AB)\\le\\min\\{r(A), r(B)\\} $$
 $$ r(A+B)\\le r(A)+r(B) $$
 $$ r\\begin{pmatrix}A&O\\\\O&B\\end{pmatrix}=r(A)+r(B) $$
-<p><b>③ Sylvester 不等式：</b>$r(A_{m\\times n})+r(B_{n\\times s})\\le n \\Rightarrow r(AB)\\ge r(A)+r(B)-n$。</p>
+<p><b>③ Sylvester 不等式：</b>若 $A$ 为 $m\\times n$ 矩阵、$B$ 为 $n\\times s$ 矩阵，则无须附加其他秩条件，恒有</p>
+$$ r(AB)\\ge r(A)+r(B)-n $$
 <p><b>④ $AB=O$ 时：</b>$r(A)+r(B)\\le n$（$B$ 的列都是 $Ax=0$ 的解）。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（求秩）$A=\\begin{pmatrix}1&2&3\\\\2&4&6\\\\1&1&1\\end{pmatrix}$</div>

@@ -54,14 +54,14 @@ printf("%d", s);</pre>
 }</pre>
 <p class="muted">这个 4 行模板是排序、查找等一切数组算法的骨架，考场上"写算法题"就是从它开始改。</p></div>`],
 ['warn', '易错点',
-`<p>• <code>5/2 = 2</code> 而不是 2.5——两个 int 相除结果还是 int（向下取整）。想要小数得写 <code>5.0/2</code>。</p>
+`<p>• <code>5/2 = 2</code> 而不是 2.5——两个 int 相除仍得整数，小数部分会被<b>向零截断</b>，所以 <code>-5/2 = -2</code>。想得到小数要写 <code>5.0/2</code>。除数为 0 属于未定义行为；对常见补码机器上的最小 int，<code>INT_MIN / -1</code> 也会因结果不可表示而产生未定义行为。</p>
 <p>• 数组下标从 <b>0</b> 开始：长度为 n 的数组，合法下标是 0 ~ n-1。<code>a[n]</code> 是越界。</p>
 <p>• <code>=</code> 是赋值，<code>==</code> 才是"判断相等"。<code>if (x = 5)</code> 是把 5 赋给 x 且恒为真——408 代码阅读题的经典陷阱。</p>
 <p>• <code>for (i=0; i&lt;n; i++)</code> 的边界是 <code>&lt; n</code> 不是 <code>&lt;= n</code>，多跑一轮就越界。</p>`]
 ],
 quiz: [
 {id:'q1', q:'<code>int a[5] = {1,2,3,4,5};</code> 则 <code>a[1]+a[4]</code> 的值是？', opts:['6', '7', '8', '运行出错'], ans:1, exp:'下标从 0 开始：a[1] 是第 2 个元素 2，a[4] 是第 5 个元素 5，相加为 7。这是"下标从 0 起数"最经典的坑。'},
-{id:'q2', q:'<code>printf("%d", 7/2);</code> 输出？', opts:['3.5', '3', '4', '2'], ans:1, exp:'两个整数相除结果仍为整数（向零取整），7/2=3。想得到 3.5 需写成 7.0/2 或 7/2.0。'},
+{id:'q2', q:'在 C 语言中，<code>printf("%d %d", 7/2, -7/2);</code> 输出？', opts:['3 -3', '3 -4', '4 -3', '3.5 -3.5'], ans:0, exp:'两个整数相除结果仍为整数，小数部分向零截断：7/2=3，-7/2=-3。想得到小数需让至少一个操作数为浮点数。'},
 {id:'q3', q:'<code>int x=10; x = x % 3;</code> 之后 x 的值是？', opts:['3', '3.33', '1', '0'], ans:2, exp:'% 是取余运算：10 ÷ 3 = 3 余 1，所以 x%3 = 1。408 中判断奇偶、哈希散列都依赖它。'}
 ]
 
@@ -90,9 +90,15 @@ int *p = &amp;a;    /* p 存 a 的地址，&amp; 是"取地址" */
 LNode node;        node.data = 5;
 LNode *p = &amp;node;
 (*p).data  等价于  p-&gt;data   /* 箭头 = "顺着指针取成员" */</pre>
-<p><b>③ 动态分配</b></p>
-<pre class="code">p = (LNode *)malloc(sizeof(LNode));  /* 借一间新盒子 */
-free(p);                             /* 还回去（防内存泄漏） */</pre>`],
+<p><b>③ 动态分配（C 语言）</b></p>
+<pre class="code">#include &lt;stdlib.h&gt;
+LNode *p = malloc(sizeof *p);  /* C 中 void* 可自动转换为对象指针 */
+if (p == NULL) {
+    /* 分配失败：按程序约定处理，不能继续解引用 p */
+}
+free(p);                       /* 只释放动态分配且尚未释放的内存 */
+p = NULL;</pre>
+<p class="muted">C++ 的内存管理规则不同，不能把 C 的 <code>malloc/free</code> 与 C++ 的引用语法混成一段可编译代码。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1：这段代码输出什么？</div>
 <pre class="code">int a = 3, b = 7;
@@ -112,7 +118,7 @@ printf("%d", A.next-&gt;data);   /* 输出 2 */</pre></div>`],
 ['warn', '易错点',
 `<p>• 野指针：未赋初值的指针乱指一气，解引用（*p）会崩溃。声明后立刻指向确定位置或 NULL。</p>
 <p>• <code>p-&gt;data</code> 与 <code>(*p).data</code> 等价，但 <code>*p.data</code>（点号优先级高）是错的。</p>
-<p>• malloc 的返回值要<b>强转类型</b>，节点用完该 free。</p>`]
+<p>• 在 C 中，<code>malloc</code> 返回的 <code>void*</code> 不需要也不建议强制类型转换；必须包含 <code>&lt;stdlib.h&gt;</code>、检查分配失败，并且只对动态分配且尚未释放的内存调用一次 <code>free</code>。</p>`]
 ],
 quiz: [
 {id:'q1', q:'<code>int *p = &amp;a;</code> 后，<code>*p = 5;</code> 的效果是？', opts:['p 变为 5', 'a 变为 5', '创建新变量 5', '编译错误'], ans:1, exp:'*p 解引用即 a 本身，赋值改变 a。'},

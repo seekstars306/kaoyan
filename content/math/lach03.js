@@ -111,17 +111,19 @@ secs: [
 `<p><b>向量空间 = "封闭的调色盘"。</b>一组向量的一切线性组合构成的集合：盘子里任意两个颜色怎么混都还在盘子里（加法封闭）、乘倍数也在（数乘封闭）。</p>
 <blockquote><b>基 = 一套"最小标准件"：</b>空间里任何向量都能由基唯一拼出；维数 = 标准件个数。<br>$\\mathbb R^2$ 的标准基 $e_1,e_2$：任何平面向量 $(x,y)=xe_1+ye_2$，坐标就是系数。</blockquote>`],
 ['def', '定义与公式',
-`<p><b>① 向量空间：</b>非空向量集 $V$ 对加法、数乘封闭（$\\mathbf0\\in V$）。</p>
+`<p><b>① 向量空间：</b>在给定数域上的非空向量集合 $V$，若对其中任意向量的加法与任意标量的数乘都封闭，则 $V$ 是向量空间；由这些条件可推出 $\\mathbf0\\in V$ 以及加法逆元仍在 $V$ 中。</p>
 <p><b>② 基与维数：</b>$V$ 的极大无关组称基；基所含向量个数 = 维数 $\\dim V$。向量 $\\beta$ 由基 $\\xi_1,\\cdots,\\xi_n$ 的表示系数称为 $\\beta$ 在该基下的<b>坐标</b>。</p>
 <p><b>③ 齐次方程组解空间：</b>$A\\mathbf x=\\mathbf0$ 的解集是向量空间，维数 $=n-r(A)$，基础解系即其一组基（第 4 章主角）。</p>
-<p><b>④ 基变换与坐标变换（数一）：</b>由旧基 $\\alpha$ 到新基 $\\beta$ 的过渡矩阵 $P$ 满足 $[\\beta_1\\cdots\\beta_n]=[\\alpha_1\\cdots\\alpha_n]P$；坐标变换 $\\mathbf x_{新}=P^{-1}\\mathbf x_{旧}$。</p>`],
+<p><b>④ 基变换与坐标变换（数一）：</b>由旧基 $\\alpha$ 到新基 $\\beta$ 的过渡矩阵 $P$ 满足 $[\\beta_1\\cdots\\beta_n]=[\\alpha_1\\cdots\\alpha_n]P$；若同一向量在旧基、新基下的坐标分别为 $\\mathbf x_{\\mathrm{old}},\\mathbf x_{\\mathrm{new}}$，则 $\\mathbf x_{\\mathrm{new}}=P^{-1}\\mathbf x_{\\mathrm{old}}$。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（求坐标）$\\beta=(3,1)^T$ 在基 $\\xi_1=(1,1)^T,\\ \\xi_2=(1,-1)^T$ 下的坐标</div>
 <p>$x_1\\xi_1+x_2\\xi_2=\\beta$：$x_1+x_2=3,\\ x_1-x_2=1$ → $x_1=2,\\ x_2=1$。</p>
 $$ \\text{坐标}=(2,1)^T $$
 </div>
 <div class="ex-box"><div class="ex-t">例 2（过渡矩阵）旧基 $e_1,e_2$，新基 $\\beta_1=(1,1)^T,\\beta_2=(-1,1)^T$，求 $P$</div>
-<p>$P=[\\beta_1\\ \\beta_2]=\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}$。验证：$\\beta_1=P$ 的第一列 ✓。若 $\\gamma$ 旧坐标 $(3,1)$，新坐标 $=P^{-1}\\begin{pmatrix}3\\\\1\\end{pmatrix}=\\begin{pmatrix}2\\\\1\\end{pmatrix}$。</p></div>`],
+<p>$P=[\\beta_1\\ \\beta_2]=\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}$。它的两列分别是新基向量在旧基下的坐标。若 $\\gamma$ 的旧坐标为 $(3,1)^T$，则新坐标为</p>
+$$ P^{-1}\\begin{pmatrix}3\\\\1\\end{pmatrix}=\\frac12\\begin{pmatrix}1&1\\\\-1&1\\end{pmatrix}\\begin{pmatrix}3\\\\1\\end{pmatrix}=\\begin{pmatrix}2\\\\-1\\end{pmatrix}. $$
+<p>验算：$2\\beta_1-\\beta_2=2(1,1)^T-(-1,1)^T=(3,1)^T$。</p></div>`],
 ['warn', '易错点',
 `<p>• 坐标是<b>相对基而言</b>的：同一个向量在不同基下坐标不同。</p>
 <p>• 过渡矩阵 $P$ 的列是新基（在旧基下）的坐标——"新基按列排"。</p>

@@ -14,7 +14,7 @@ secs: [
 <blockquote><b>不同路径极限不同 ⇒ 极限不存在</b>（证"不存在"的最快武器）。<br>但沿有限条路径结果相同<b>不能</b>证明极限存在——路径有无数条。</blockquote>`],
 ['def', '定义与公式',
 `<p><b>① 二元极限（描述）：</b>当 $(x,y)$ 以任意方式趋于 $(x_0,y_0)$ 时 $f(x,y)$ 都趋于常数 $A$，记 $\\lim\\limits_{(x,y)\\to(x_0,y_0)}f(x,y)=A$。</p>
-<p><b>② 连续：</b>$\\lim\\limits_{(x,y)\\to(x_0,y_0)}f(x,y)=f(x_0,y_0)$。多元初等函数在其定义区域上连续。</p>
+<p><b>② 连续：</b>$\\lim\\limits_{(x,y)\\to(x_0,y_0)}f(x,y)=f(x_0,y_0)$。多项式处处连续；有理式在分母不为零处连续；由连续的一元函数经有限次四则运算与复合所得的常见多元初等函数，在其定义域内连续。</p>
 <p><b>③ 常用判别技巧：</b></p>
 <p>• 沿 $y=kx$ 代入得含 $k$ 的结果 → 极限不存在（结果随 $k$ 变）；</p>
 <p>• 夹逼/有界乘无穷小仍是二元极限的主力量具。</p>`],
@@ -50,14 +50,16 @@ secs: [
 ['def', '定义与公式',
 `<p><b>① 定义：</b></p>
 $$ \\frac{\\partial z}{\\partial x}=\\lim_{\\Delta x\\to0}\\frac{f(x_0+\\Delta x, y_0)-f(x_0,y_0)}{\\Delta x} $$
-<p><b>② 高阶偏导：</b>$\\dfrac{\\partial^2 z}{\\partial x\\partial y}=\\dfrac{\\partial}{\\partial y}\\left(\\dfrac{\\partial z}{\\partial x}\\right)$。当二阶偏导<b>连续</b>时，$\\dfrac{\\partial^2 z}{\\partial x\\partial y}=\\dfrac{\\partial^2 z}{\\partial y\\partial x}$（求导次序可换）。</p>
-<p><b>③ 一元结论对照：</b>偏导存在<b>不能</b>推出连续（$f=\\tfrac{xy}{x^2+y^2}$ 在原点两偏导都是 0，但不连续）。</p>`],
+<p><b>② 高阶偏导：</b>$\\dfrac{\\partial^2 z}{\\partial x\\partial y}=\\dfrac{\\partial}{\\partial y}\\left(\\dfrac{\\partial z}{\\partial x}\\right)$。若两个二阶混合偏导在该点的某个邻域内连续，则在该点有 $\\dfrac{\\partial^2 z}{\\partial x\\partial y}=\\dfrac{\\partial^2 z}{\\partial y\\partial x}$（求导次序可换）。</p>
+<p><b>③ 一元结论对照：</b>偏导存在<b>不能</b>推出连续。例如定义</p>
+$$ f(x,y)=\\begin{cases}\\dfrac{xy}{x^2+y^2},&(x,y)\\neq(0,0),\\\\0,&(x,y)=(0,0),\\end{cases} $$
+<p>则 $f_x(0,0)=f_y(0,0)=0$，但沿 $y=x$ 趋近时 $f(x,x)=\\tfrac12$，所以 $f$ 在原点不连续。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1 求 $z=x^3 y^2+e^{xy}$ 的偏导</div>
 $$ \\frac{\\partial z}{\\partial x}=3x^2y^2+ye^{xy},\\qquad \\frac{\\partial z}{\\partial y}=2x^3y+xe^{xy} $$
 </div>
 <div class="ex-box"><div class="ex-t">例 2（混合偏导）验证 $z=\\ln(x^2+y^2)$ 满足 $\\dfrac{\\partial^2 z}{\\partial x\\partial y}=\\dfrac{\\partial^2 z}{\\partial y\\partial x}$</div>
-<p>$z_x=\\dfrac{2x}{x^2+y^2}$，再对 $y$：$\\dfrac{-2x\\cdot2y}{(x^2+y^2)^2}=\\dfrac{-4xy}{(x^2+y^2)^2}$。</p>
+<p>定义域为 $x^2+y^2>0$，即 $(x,y)\\neq(0,0)$。在该定义域内，$z_x=\\dfrac{2x}{x^2+y^2}$，再对 $y$：$\\dfrac{-2x\\cdot2y}{(x^2+y^2)^2}=\\dfrac{-4xy}{(x^2+y^2)^2}$。</p>
 <p>$z_y=\\dfrac{2y}{x^2+y^2}$，再对 $x$：同得 $\\dfrac{-4xy}{(x^2+y^2)^2}$。相等 ✓。</p></div>`],
 ['warn', '易错点',
 `<p>• 对 $x$ 求偏导时 $y$ 是常数，但乘在 $e^{xy}$、$\\sin(xy)$ 里的 $y$ 要作为链式系数出现。</p>
@@ -84,7 +86,7 @@ secs: [
 `<p><b>① 全微分定义：</b>若 $\\Delta z=A\\Delta x+B\\Delta y+o(\\rho)$（$\\rho=\\sqrt{\\Delta x^2+\\Delta y^2}$），称 $z$ 可微，且</p>
 $$ dz=\\frac{\\partial z}{\\partial x}dx+\\frac{\\partial z}{\\partial y}dy $$
 <p><b>② 逻辑链（多元版）：</b></p>
-$$ \\text{偏导连续} \\Rightarrow \\text{可微} \\Rightarrow \\begin{cases}\\text{偏导存在}\\\\ \\text{连续}\\end{cases} $$`
+$$ \\text{两个一阶偏导在该点某邻域内连续} \\Rightarrow \\text{在该点可微} \\Rightarrow \\begin{cases}\\text{该点偏导存在}\\\\ \\text{在该点连续}\\end{cases} $$`
 ],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1 求 $z=xy^2$ 在点 $(1,2)$ 处的全微分</div>
@@ -103,7 +105,7 @@ $$ (1.02)^{2.97}\\approx 1+0.06=1.06 $$
 quiz: [
 {id:'q1', q:'$z=e^{xy}$ 的全微分是？', opts:['$e^{xy}(y\\,dx+x\\,dy)$', '$e^{xy}(dx+dy)$', '$ye^{xy}dx$', '$e^{xy}dy$'], ans:0, exp:'$z_x=ye^{xy}$，$z_y=xe^{xy}$，$dz=z_xdx+z_ydy$。'},
 {id:'q2', q:'多元函数"可微"与"偏导存在"的关系是？', opts:['等价', '可微 ⇒ 偏导存在，反之不然', '偏导存在 ⇒ 可微，反之不然', '无关'], ans:1, exp:'可微是更强的要求：偏导只是"两个方向的斜率"，可微要求"切平面近似"整体成立。'},
-{id:'q3', q:'若 $z$ 的两个偏导<b>连续</b>，则 $z$ 一定？', opts:['不可微', '可微', '仅偏导存在', '不连续'], ans:1, exp:'偏导连续是可微的充分条件（多元微分学基本定理）。'}
+{id:'q3', q:'若 $z$ 的两个一阶偏导在某点的一个邻域内连续，则 $z$ 在该点一定？', opts:['不可微', '可微', '仅偏导存在但不连续', '不连续'], ans:1, exp:'两个一阶偏导在该点某邻域内连续，是函数在该点可微的充分条件。'}
 ]
 
 },
@@ -120,7 +122,7 @@ $$ \\frac{\\partial z}{\\partial x}=\\frac{\\partial z}{\\partial u}\\cdot\\frac
 ['def', '定义与公式',
 `<p><b>① 多元链式：</b>$z=f(u,v)$，$u=u(x,y)$，$v=v(x,y)$：</p>
 $$ \\frac{\\partial z}{\\partial x}=z_u u_x+z_v v_x,\\qquad \\frac{\\partial z}{\\partial y}=z_u u_y+z_v v_y $$
-<p><b>② 一个隐方程：</b>$F(x,y)=0$：$\\dfrac{dy}{dx}=-\\dfrac{F_x}{F_y}$；$F(x,y,z)=0$ 定 $z(x,y)$：$\\dfrac{\\partial z}{\\partial x}=-\\dfrac{F_x}{F_z}$。</p>
+<p><b>② 一个隐方程：</b>若 $F(x,y)=0$ 在所考察点附近满足隐函数定理的条件，特别是 $F_y\\neq0$，则 $\\dfrac{dy}{dx}=-\\dfrac{F_x}{F_y}$；若 $F(x,y,z)=0$ 确定 $z=z(x,y)$ 且 $F_z\\neq0$，则 $\\dfrac{\\partial z}{\\partial x}=-\\dfrac{F_x}{F_z}$。</p>
 <p><b>③ 方程组：</b>每个方程两边求导（记 $y,z$ 都是 $x$ 的函数），解线性方程组。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（链式）$z=u^2v$，$u=x+y$，$v=xy$，求 $\\dfrac{\\partial z}{\\partial x}$</div>
@@ -128,7 +130,7 @@ $$ \\frac{\\partial z}{\\partial x}=z_u u_x+z_v v_x,\\qquad \\frac{\\partial z}{
 $$ z_x=2uv\\cdot1+u^2\\cdot y=2(x+y)xy+(x+y)^2y $$
 </div>
 <div class="ex-box"><div class="ex-t">例 2（隐函数）设 $e^z-xyz=0$ 确定 $z=z(x,y)$，求 $\\dfrac{\\partial z}{\\partial x}$</div>
-<p>$F=e^z-xyz$：$F_x=-yz$，$F_z=e^z-xy$。</p>
+<p>$F=e^z-xyz$：$F_x=-yz$，$F_z=e^z-xy$。在所考察点满足 $e^z-xy\\neq0$ 时，隐函数定理给出</p>
 $$ z_x=-\\frac{F_x}{F_z}=\\frac{yz}{e^z-xy} $$
 <p class="muted">用公式法前先写明 $F$，把所有项移到一边。</p></div>`],
 ['warn', '易错点',
@@ -138,7 +140,7 @@ $$ z_x=-\\frac{F_x}{F_z}=\\frac{yz}{e^z-xy} $$
 ],
 quiz: [
 {id:'q1', q:'$z=u e^{v}$，$u=x^2$，$v=x+y$，则 $\\dfrac{\\partial z}{\\partial x}$ 含两条路径的项数为？', opts:['0', '1', '2', '3'], ans:2, exp:'$z$ 经 $u$ 到 $x$、经 $v$ 到 $x$，两条路径，$z_x=z_u\\cdot2x+z_v\\cdot1$。'},
-{id:'q2', q:'$F(x,y)=x^2+y^2-1=0$ 确定的 $y(x)$，$\\dfrac{dy}{dx}$ 等于？', opts:['$\\dfrac{x}{y}$', '$-\\dfrac{x}{y}$', '$-2x$', '$\\dfrac{2x}{2y}$'], ans:1, exp:'$F_x=2x$，$F_y=2y$，$y\'=-\\tfrac{2x}{2y}=-\\tfrac xy$（与隐函数直接求导一致）。'},
+{id:'q2', q:'在圆 $F(x,y)=x^2+y^2-1=0$ 上且 $y\\neq0$ 的点，由该方程局部确定的 $y(x)$ 满足 $\\dfrac{dy}{dx}=$？', opts:['$\\dfrac{x}{y}$', '$-\\dfrac{x}{y}$', '$-2x$', '$\\dfrac{2x}{2y}$'], ans:1, exp:'$F_x=2x$，$F_y=2y\\neq0$，所以 $y\'=-\\tfrac{F_x}{F_y}=-\\tfrac xy$。在 $y=0$ 的左右端点，不能把圆局部写成单值的 $y(x)$ 并套这个公式。'},
 {id:'q3', q:'设 $z=f(xy, \\tfrac{x}{y})$，$f$ 有连续偏导，则 $\\dfrac{\\partial z}{\\partial x}$ 等于？', opts:['$y f_1\' + \\tfrac1y f_2\'$', '$x f_1\'$', '$f_1\'+f_2\'$', '$y f_1\'-\\tfrac1y f_2\'$'], ans:0, exp:'$u=xy$ 对 $x$ 导 $y$；$v=\\tfrac xy$ 对 $x$ 导 $\\tfrac1y$。记号 $f_1\'$ 表 $f$ 对第一个位置变量求偏导。'}
 ]
 
@@ -150,26 +152,31 @@ secs: [
 ['why', '为什么学这一节',
 `<p>多元极值是数二多元部分的应用高点：无条件极值走"一阶偏导为零 + 二阶判别"流程；条件极值（拉格朗日乘数法）解决"在某约束下求最值"——两种方法都是解答题模板。</p>`],
 ['think', '直观理解',
-`<p><b>无条件极值：</b>山顶、谷底——四周围都是"下坡/上坡"，一阶偏导（两个方向的坡度）都必须为零。</p>
+`<p><b>无条件极值：</b>在内点且函数可微时，局部极值点的一阶偏导必须都为零；因此先解 $f_x=f_y=0$ 找驻点，再检查不可微点和定义域边界。驻点只是候选点，还要用二阶判别或定义继续判断。</p>
 <blockquote><b>条件极值 = 沿着围栏找最高点。</b>人被拴在曲线 $g(x,y)=0$ 上，最高点处：坡度方向恰好被"围栏方向 + 一股拉力"平衡——拉力大小就是拉格朗日乘数 $\\lambda$。</blockquote>
 <p><b>二阶判别的记忆法：</b>$AC-B^2$ 是"碗的弯曲度指标"：为正且 $A>0$ 碗口朝上（极小）；为正且 $A<0$ 碗口朝下（极大）；为负是马鞍（无极值）。</p>`],
 ['def', '定义与公式',
 `<p><b>① 无条件极值流程：</b>解 $\\begin{cases}f_x=0\\\\ f_y=0\\end{cases}$ 得驻点 → 计算</p>
 $$ A=f_{xx},\\quad B=f_{xy},\\quad C=f_{yy} $$
 <p>判别：$AC-B^2>0$ 且 $A>0$：极小；$AC-B^2>0$ 且 $A<0$：极大；$AC-B^2<0$：非极值；$=0$：失效另判。</p>
-<p><b>② 拉格朗日乘数法：</b>求 $f(x,y)$ 在约束 $g(x,y)=0$ 下的极值，令</p>
+<p><b>② 拉格朗日乘数法：</b>设 $f,g$ 具有连续一阶偏导，并且约束曲线 $g(x,y)=0$ 上所考察点满足 $\\nabla g\\neq\\mathbf0$。求 $f(x,y)$ 在该约束下的极值时，令</p>
 $$ L(x,y,\\lambda)=f(x,y)+\\lambda g(x,y) $$
-<p>解 $\\begin{cases}L_x=0\\\\ L_y=0\\\\ L_\\lambda=0\\end{cases}$，比较各解的 $f$ 值（实际问题由意义定最值）。</p>`],
+<p>解 $\\begin{cases}L_x=0\\\\ L_y=0\\\\ L_\\lambda=0\\end{cases}$ 得到候选点，再结合定义域、边界或实际意义比较 $f$ 值。若 $\\nabla g=\\mathbf0$，上述乘数条件可能漏点，必须单独检查。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（无条件极值）求 $f(x,y)=x^3+y^3-3xy$ 的极值</div>
 <p>$f_x=3x^2-3y=0,\\ f_y=3y^2-3x=0$ → $y=x^2$ 且 $x=y^2$ → 实驻点 $(0,0)$ 与 $(1,1)$。</p>
 <p>$A=6x,\\ B=-3,\\ C=6y$。</p>
 <p>• $(0,0)$：$AC-B^2=0-9=-9<0$，非极值（马鞍点）。</p>
 <p>• $(1,1)$：$AC-B^2=36-9=27>0$，$A=6>0$ → <b>极小值 $f(1,1)=1+1-3=-2$</b>。</p></div>
-<div class="ex-box"><div class="ex-t">例 2（拉格朗日）表面积 $2xy+2yz+2xz=6a^2$ 的长方体（开顶视为按题给式）求最大体积——以"$x+y+z=a$ 下最大 $xyz$"示范</div>
-<p>$L=xyz+\\lambda(x+y+z-a)$：$L_x=yz+\\lambda=0,\\ L_y=xz+\\lambda=0,\\ L_z=xy+\\lambda=0$。</p>
-<p>三式相减得 $x=y=z$，代入约束 $x=y=z=\\tfrac a3$，最大体积 $\\dfrac{a^3}{27}$。</p>
-<p class="muted">对称约束常给对称解；"乘数方程两两相减"是解方程组的标准技巧。</p></div>`],
+<div class="ex-box"><div class="ex-t">例 2（拉格朗日）边长为正的长方体表面积满足 $2xy+2yz+2xz=6a^2$（$a>0$），求最大体积</div>
+<p>边长 $x,y,z>0$，体积 $V=xyz$，约束化为 $xy+yz+xz=3a^2$。构造</p>
+$$ L=xyz+\\lambda(xy+yz+xz-3a^2) $$
+<p>令三个偏导为零：</p>
+$$ yz+\\lambda(y+z)=0,\\quad xz+\\lambda(x+z)=0,\\quad xy+\\lambda(x+y)=0 $$
+<p>分别乘以 $x,y,z$ 后相减。由于 $x,y,z>0$，且上述方程说明 $\\lambda\\neq0$，可依次得到 $x=y=z$。代入约束：$3x^2=3a^2$，故 $x=y=z=a$，候选体积为 $a^3$。</p>
+<p>再用均值不等式验证它确为全局最大值：</p>
+$$ a^2=\\frac{xy+yz+xz}{3}\\ge\\sqrt[3]{(xy)(yz)(xz)}=(xyz)^{2/3} $$
+<p>所以 $xyz\\le a^3$，等号恰在 $x=y=z=a$ 时成立，最大体积为 $\\boxed{a^3}$。</p></div>`],
 ['warn', '易错点',
 `<p>• 驻点要先解<b>方程组</b>（两个偏导同时为零），只解一个方程是常见半途而废。</p>
 <p>• $AC-B^2<0$ 时无论 $A$ 正负都<b>不是极值</b>（马鞍面情形）。</p>

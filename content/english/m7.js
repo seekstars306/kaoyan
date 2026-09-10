@@ -12,7 +12,7 @@ secs: [
 ['think', '直观理解',
 `<p><b>书信 = 三段式：</b>开头（说明身份与来意）→ 主体（2-3 个要点，每点一句主题句+一句展开）→ 结尾（期待回复/感谢/歉意 + 礼貌收束）。</p>
 <blockquote><b>通用开头：</b>I am writing to…（express my gratitude / make a suggestion / invite you to…）——一类信一个动宾，考场直接套。</blockquote>
-<p><b>称呼与落款：</b>Dear Sir or Madam,（不知名收信人）/ Dear Mr. Wang,（知名）；落款 Yours sincerely, / Yours faithfully, + Li Ming（大纲默认署名）。</p>`],
+<p><b>称呼与落款：</b>称呼和结尾应服从题目给定的身份、对象与格式。正式书信可用 Dear Sir or Madam,；知道姓名时用 Dear Mr./Ms. Wang, 等。常见结尾包括 Yours sincerely, 和 Yours faithfully,，但不同英美书信规范的搭配略有差异；考试中优先遵从题目示例，并使用题目要求的署名（常见为 Li Ming）。</p>`],
 ['def', '六大书信核心句型',
 `<p style="line-height:2.1">• <b>建议信：</b>I am writing to make some practical suggestions on… / It would be beneficial if you could… / I hope these suggestions will be of help.<br>
 • <b>感谢信：</b>I am writing to express my heartfelt thanks for… / But for your help, I would not have…<br>
@@ -20,7 +20,7 @@ secs: [
 • <b>道歉信：</b>I am terribly sorry for not being able to… / Please accept my sincere apology for…<br>
 • <b>咨询信：</b>I am writing to inquire about… / I would be grateful if you could provide detailed information about…<br>
 • <b>推荐信：</b>It is with great pleasure that I recommend… / Based on his outstanding performance, I am confident that…</p>
-<p class="muted">每个句型都要默写级熟练：小作文 100 词左右，10-12 句话，开头结尾 4 句就是骨架。</p>`],
+<p class="muted">篇幅首先遵照当年题目要求，不能把固定句数当硬指标。模板只提供结构，主体段仍要完整覆盖题目所列要点。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例：建议信骨架（真题风格）</div>
 <p>Dear Sir or Madam,</p>
@@ -31,7 +31,7 @@ secs: [
 ['warn', '易错点',
 `<p>• 格式分：称呼、落款、分段一样都不能少——格式错误白丢分。</p>
 <p>• 语气匹配：对机构/师长用正式语气（I would be grateful），对朋友可 casual（Thanks a lot for…）。</p>
-<p>• 时态：建议/邀请用情态动词（should/could/would），已发生的事用过去完成。</p>`]
+<p>• 时态应由时间关系决定：已结束的过去事件通常用一般过去时；过去事件与现在有关时可用现在完成时；只有表示“在另一个过去时间之前已经完成”时才用过去完成时。</p>`]
 ],
 quiz: [
 {id:'q1', q:'小作文不知收信人姓名时，称呼写？', opts:['Dear Friend,', 'Dear Sir or Madam,', 'Hi,', 'To whom'], ans:1, exp:'正式信函的通用称呼。'},
@@ -92,7 +92,7 @@ secs: [
 • 对比：In contrast, … / Compared with…, … nearly doubled.<br>
 • 原因：The reasons behind this phenomenon are various. First and foremost, … In addition, …<br>
 • 总结：On the basis of the analysis above, we can conclude that… / It can be predicted that this trend will continue in the foreseeable future.</p>
-<p class="muted">数配比：描述段约 40 词、分析段约 90 词、总结段约 30 词，共 150-180 词为宜。</p>`],
+<p class="muted">篇幅应以当年题目给出的要求为准。练习时可用“描述—分析—总结”检查结构是否完整，但各段字数不必机械固定。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例：柱状图（某市快递量 2020-2024）第一段示范</div>
 <p><span class="speak-btn" data-speak="What is clearly presented in the bar chart is the remarkable growth of express delivery in City X from 2020 to 2024. Specifically, the volume climbed from 2 billion to 8 billion, nearly quadrupling within five years.">What is clearly presented in the bar chart is the remarkable growth of express delivery in City X from 2020 to 2024. Specifically, the volume climbed from 2 billion to 8 billion, nearly quadrupling within five years.</span></p>

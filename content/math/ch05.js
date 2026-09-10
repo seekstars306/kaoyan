@@ -35,7 +35,7 @@ $$ =\\int_0^1\\frac{dx}{1+x}=\\ln2 $$
 ],
 quiz: [
 {id:'q1', q:'$\\lim\\limits_{n\\to\\infty}\\dfrac1n\\sum\\limits_{i=1}^{n}\\dfrac{i}{n}$ 化为定积分是？', opts:['$\\displaystyle\\int_0^1 x\\,dx$', '$\\displaystyle\\int_1^2 x\\,dx$', '$\\displaystyle\\int_0^1 \\tfrac1x dx$', '$\\displaystyle\\int_0^n x\\,dx$'], ans:0, exp:'$\\tfrac in$ 是 $n$ 等分点，和式极限 $=\\int_0^1 xdx=\\tfrac12$。认准"$\\tfrac1n$ 提取 + $\\tfrac in$ 入函数"。'},
-{id:'q2', q:'$\\displaystyle\\int_{-1}^{1}x^2dx$ 与 $\\displaystyle\\int_{-1}^{1}x^4dx$ 的大小？', opts:['前者大', '后者大', '相等', '无法比较'], ans:0, exp:'$|x|\\le1$ 时 $x^2\\ge x^4$，由保序性前者不小于后者（端点相等不影响积分更大概率）。'},
+{id:'q2', q:'$\\displaystyle\\int_{-1}^{1}x^2dx$ 与 $\\displaystyle\\int_{-1}^{1}x^4dx$ 的大小？', opts:['前者大', '后者大', '相等', '无法比较'], ans:0, exp:'在 $[-1,1]$ 上有 $x^2\\ge x^4$，且除 $-1,0,1$ 外严格大于。由定积分保序性，$\\int_{-1}^{1}x^2dx>\\int_{-1}^{1}x^4dx$。'},
 {id:'q3', q:'积分中值定理表明：连续函数在 $[a,b]$ 上的定积分等于？', opts:['两端点函数值之差', '$f(a)(b-a)$', '某点函数值 $f(\\xi)\\times(b-a)$', '最大值×区间长'], ans:2, exp:'存在 $\\xi$ 使积分 = 平均高度 × 宽度。'}
 ]
 
@@ -50,12 +50,12 @@ secs: [
 `<p><b>变限积分是"累积量"：</b>$F(x)=\\displaystyle\\int_a^x f(t)dt$ 表示从 $a$ 到 $x$ 累积的面积。$x$ 往右挪一点点，面积增加一个"高 $f(x)$ 宽 $dx$"的小条——所以 $F\'(x)=f(x)$。</p>
 <blockquote>这就是微积分基本定理的直觉：<b>累积的速率就是当前的高度。</b>反过来 $\\displaystyle\\int_a^b f=F(b)-F(a)$：总面积 = 原函数的"里程表读数差"。</blockquote>`],
 ['def', '定义与公式',
-`<p><b>① 变限积分求导（核心公式）：</b></p>
+`<p><b>① 变限积分求导（核心公式）：</b>若 $f$ 在上下限取值所经过的区间内连续，且 $\\varphi,\\psi$ 可导，则</p>
 $$ \\frac{d}{dx}\\int_{\\varphi(x)}^{\\psi(x)}f(t)dt = f[\\psi(x)]\\psi\'(x) - f[\\varphi(x)]\\varphi\'(x) $$
 <p class="muted">上代 $\\psi$ 乘其导，下代 $\\varphi$ 乘其导，上减下。</p>
 <p><b>② 牛顿—莱布尼茨公式：</b>$f$ 在 $[a,b]$ 连续，$F$ 为其原函数，则</p>
 $$ \\int_a^b f(x)dx=F(b)-F(a) $$
-<p><b>③ 重要奇偶性（记结论）：</b>$f$ 为奇函数 $\\Rightarrow$ $\\displaystyle\\int_a^x f(t)dt$ 为偶函数；$f$ 为偶函数 $\\Rightarrow$ $\\displaystyle\\int_0^x f(t)dt$ 为奇函数。</p>`],
+<p><b>③ 变限积分的奇偶性：</b>当 $f$ 连续且定义域关于原点对称，令 $F(x)=\\displaystyle\\int_0^x f(t)dt$。若 $f$ 为奇函数，则 $F$ 为偶函数；若 $f$ 为偶函数，则 $F$ 为奇函数。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（求导）设 $F(x)=\\displaystyle\\int_0^{x^2}\\sin t\\,dt$，求 $F\'(x)$</div>
 <p>上界 $x^2$ 乘其导 $2x$：</p>
@@ -67,9 +67,9 @@ $$ F\'(x)=\\sin(x^2)\\cdot 2x $$
 $$ \\sin x\\Big|_0^{\\pi/2}=\\sin\\frac{\\pi}{2}-\\sin 0=1 $$
 </div>`],
 ['warn', '易错点',
-`<p>• 变限积分求导要求<b>被积函数连续</b>（或可积但有界）；含参量 $x$ 混进被积函数时（如 $\\int_0^x xf(t)dt$）必须先拆出来。</p>
+`<p>• 若 $f$ 连续且内外层函数可导，变限积分按链式法则求导。若含参量 $x$ 同时出现在被积表达式中（如 $\\int_0^x xf(t)dt$），能提出积分号的因子先提出；一般情形要使用含参变量积分的求导法则。</p>
 <p>• 上界是复合函数（$x^2$、$\\tfrac1x$）时，链式法则的乘积因子必写。</p>
-<p>• N-L 公式要求<b>原函数存在且可算</b>；不要求"原函数初等可表"时别死磕不定积分，考虑换元对称性。</p>`]
+<p>• 牛顿—莱布尼茨公式的典型条件是 $f$ 在 $[a,b]$ 上连续：若 $F\'=f$，则 $\\int_a^b f(x)dx=F(b)-F(a)$。“能否写出初等函数形式的原函数”只是计算上的困难，不是定理额外要求；直接求原函数困难时可考虑换元、分部或对称性。</p>`]
 ],
 quiz: [
 {id:'q1', q:'$F(x)=\\displaystyle\\int_0^{x}t e^{t^2}dt$，则 $F\'(x)$ 等于？', opts:['$xe^{x^2}$', '$e^{x^2}$', '$2xe^{x^2}$', '$x e^{x^2}\\cdot x$'], ans:0, exp:'直接代公式：被积函数把 $t$ 换成 $x$，即 $xe^{x^2}$。'},
@@ -88,12 +88,14 @@ secs: [
 `<p><b>奇函数对称区间 = 左右面积抵消：</b>$\\displaystyle\\int_{-a}^{a}$ 奇函数 $=0$（左边负面积恰好抵消右边正面积）；偶函数则只剩一半再翻倍。</p>
 <blockquote><b>换元换限：</b>$x=a\\sin t$ 后上下限跟着 $t$ 走，算出 $t$ 的结果直接代限，不用换回 $x$——这是定积分比不定积分省事的地方。</blockquote>`],
 ['def', '定义与公式',
-`<p><b>① 定积分换元：</b>$\\displaystyle\\int_a^b f(x)dx\\xlongequal{x=\\varphi(t)}\\int_\\alpha^\\beta f[\\varphi(t)]\\varphi\'(t)dt$（限 $\\alpha=\\varphi^{-1}(a),\\beta=\\varphi^{-1}(b)$）。</p>
+`<p><b>① 定积分换元：</b>若 $f$ 连续，$\\varphi$ 在 $[\\alpha,\\beta]$ 上连续可导，并满足 $\\varphi(\\alpha)=a,\\ \\varphi(\\beta)=b$，则</p>
+$$ \\int_a^b f(x)dx\\xlongequal{x=\\varphi(t)}\\int_\\alpha^\\beta f[\\varphi(t)]\\varphi\'(t)dt. $$
+<p>实际定限时把原端点分别代入换元关系求新端点；若希望由 $x$ 唯一反解 $t$，还应在所选区间内保证换元一一对应。</p>
 <p><b>② 定积分分部：</b>$\\displaystyle\\int_a^b u\\,dv=uv\\Big|_a^b-\\displaystyle\\int_a^b v\\,du$（边界项随时算）。</p>
 <p><b>③ 必背对称结论：</b></p>
 $$ \\int_{-a}^{a}f(x)dx=\\begin{cases}2\\displaystyle\\int_0^a f(x)dx, & f\\text{ 偶}\\\\ 0, & f\\text{ 奇}\\end{cases} $$
 $$ \\int_0^{\\frac{\\pi}{2}}\\sin^n x\\,dx=\\int_0^{\\frac{\\pi}{2}}\\cos^n x\\,dx=\\frac{(n-1)!!}{n!!}\\cdot\\begin{cases}\\dfrac{\\pi}{2}, & n\\text{ 偶}\\\\ 1, & n\\text{ 奇}\\end{cases} $$
-<p class="muted">双阶乘公式（华里士公式）在旋转体、弧长里也常用，记结论省时间。</p>`],
+<p class="muted">这里 $n$ 为非负整数，并约定 $0!!=(-1)!!=1$。双阶乘公式（华里士公式）在旋转体、弧长里也常用。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（对称性）求 $\\displaystyle\\int_{-1}^{1}\\dfrac{x^3+1}{x^2+1}dx$</div>
 <p>拆开：$\\dfrac{x^3}{x^2+1}$ 是奇函数积分为 0；$\\dfrac{1}{x^2+1}$ 是偶函数。</p>
@@ -130,7 +132,7 @@ secs: [
 ['def', '定义与公式',
 `<p><b>① 无穷区间：</b></p>
 $$ \\int_a^{+\\infty}f(x)dx=\\lim_{b\\to+\\infty}\\int_a^b f(x)dx\\ (\\text{存在则收敛}) $$
-<p><b>② 瑕积分</b>（$f$ 在 $x_0$ 附近无界）：$\\displaystyle\\int_a^b f dx=\\lim_{\\varepsilon\\to0^+}\\int_a^{b-\\varepsilon}f dx$。</p>
+<p><b>② 瑕积分：</b>若 $f$ 在右端点 $b$ 附近无界，则 $\\displaystyle\\int_a^b f(x)dx=\\lim_{c\\to b^-}\\int_a^c f(x)dx$；若在左端点 $a$ 附近无界，则取 $\\displaystyle\\lim_{c\\to a^+}\\int_c^b f(x)dx$。若瑕点 $x_0\\in(a,b)$ 位于区间内部，必须拆成 $\\displaystyle\\int_a^{x_0}f+\\int_{x_0}^b f$，且左右两段分别收敛时原积分才收敛。</p>
 <p><b>③ 重要敛散结论（$p$ 积分，直接用）：</b></p>
 $$ \\int_1^{+\\infty}\\frac{1}{x^p}dx\\ \\begin{cases}\\text{收敛} & p>1\\\\ \\text{发散} & p\\le1\\end{cases}\\qquad \\int_0^{1}\\frac{1}{x^p}dx\\ \\begin{cases}\\text{收敛} & p<1\\\\ \\text{发散} & p\\ge1\\end{cases} $$
 <p class="muted">注意方向相反：无穷远"衰减快才收敛"，瑕点附近"爆炸慢才收敛"。</p>`],
@@ -140,7 +142,12 @@ $$ \\int_1^{+\\infty}\\frac{1}{x^p}dx\\ \\begin{cases}\\text{收敛} & p>1\\\\ \
 $$ \\Big[-(x+1)e^{-x}\\Big]_0^{+\\infty}=0-(-1)=1 $$
 <p class="muted">$x\\to+\\infty$ 时 $(x+1)e^{-x}\\to0$（指数压倒幂）。</p></div>
 <div class="ex-box"><div class="ex-t">例 2 判断 $\\displaystyle\\int_1^{+\\infty}\\dfrac{dx}{x\\sqrt{\\ln x}}$ 的敛散性</div>
-<p>令 $u=\\ln x$：积分 $=\\displaystyle\\int_0^{+\\infty}\\dfrac{du}{\\sqrt u}$，这是 $\\left[0,+\\infty\\right)$ 上的 $p=\\tfrac12$ 瑕积分（$u=0$ 处）与无穷积分，$p<1$ 发散 → <b>发散</b>。</p></div>`],
+<p>令 $u=\\ln x$，则积分化为 $\\displaystyle\\int_0^{+\\infty}u^{-1/2}du$。新积分有 $u=0$ 与 $+\\infty$ 两个反常端点，必须分开判断。</p>
+<p>任取 $c>0$，在零点附近：</p>
+$$ \\int_0^c u^{-1/2}du=2\\sqrt c<+\\infty $$
+<p>所以 $u=0$ 附近按瑕点判据 $p=\\tfrac12<1$ 是<b>收敛</b>的；但在无穷远处：</p>
+$$ \\int_c^{+\\infty}u^{-1/2}du=\\lim_{b\\to+\\infty}2(\\sqrt b-\\sqrt c)=+\\infty $$
+<p>按无穷区间判据 $p=\\tfrac12\\le1$ 发散。因此原积分<b>发散，发散原因在 $+\\infty$ 端，而不是 $u=0$ 端</b>。</p></div>`],
 ['warn', '易错点',
 `<p>• 瑕点在区间<b>内部</b>时（如 $\\displaystyle\\int_0^2\\tfrac{dx}{x-1}$），必须从瑕点拆成两段，<b>两段都收敛才收敛</b>。</p>
 <p>• 看到 $\\infty$ 或分母可为零，第一反应判型：是反常积分就别直接套 N-L 公式。</p>
@@ -163,15 +170,18 @@ secs: [
 `<p><b>微元法三步：</b>① 切薄片：在 $[x,x+dx]$ 上把问题"拉直"近似；② 写微元：$dA=$ 高×宽，$dV=$ 底面积×高；③ 积分累加。</p>
 <blockquote>旋转体体积的两种切法：<b>圆盘法</b>（垂直于轴切片，$dV=\\pi y^2 dx$，切出来是实心圆片）；<b>柱壳法</b>（平行于轴剥壳，$dV=2\\pi x y\\,dx$，像剥洋葱皮）。</blockquote>`],
 ['def', '定义与公式',
-`<p><b>① 平面图形面积：</b></p>
-$$ S=\\int_a^b\\big[f(x)-g(x)\\big]dx\\ (f\\text{ 在上}),\\qquad S=\\int_\\alpha^\\beta\\tfrac12 r^2(\\theta)\\,d\\theta\\ (\\text{极坐标}) $$
-<p><b>② 旋转体体积：</b>曲线 $y=f(x)\\ (\\ge0)$、$x\\in[a,b]$ 绕 <b>x 轴</b>：</p>
-$$ V_x=\\pi\\int_a^b f^2(x)dx $$
-<p>绕 <b>y 轴</b>（柱壳法）：</p>
-$$ V_y=2\\pi\\int_a^b x f(x)dx $$
-<p><b>③ 弧长：</b></p>
-$$ s=\\int_a^b\\sqrt{1+[f\'(x)]^2}\\,dx $$
-<p class="muted">旋转曲面面积 $S=2\\pi\\displaystyle\\int_a^b f(x)\\sqrt{1+[f\']^2}dx$（数二大纲内，偶尔考）。</p>`],
+`<p><b>① 平面图形面积：</b>若 $f,g$ 连续且在 $[a,b]$ 上有 $f(x)\\ge g(x)$，则</p>
+$$ S=\\int_a^b\\big[f(x)-g(x)\\big]dx. $$
+<p>若极坐标区域可写成 $\\alpha\\le\\theta\\le\\beta,\\ 0\\le r\\le r(\\theta)$，则</p>
+$$ S=\\frac12\\int_\\alpha^\\beta r^2(\\theta)\\,d\\theta. $$
+<p><b>② 旋转体体积：</b>设平面区域为 $a\\le x\\le b,\\ 0\\le y\\le f(x)$。若 $f$ 连续且非负，绕 <b>x 轴</b>旋转可用圆盘法：</p>
+$$ V_x=\\pi\\int_a^b f^2(x)dx. $$
+<p>若 $0\\le a<b$，绕 <b>y 轴</b>旋转可用柱壳法；对每个半径 $x$，壳高为 $f(x)$，体积微元为 $2\\pi x f(x)\\,dx$：</p>
+$$ V_y=2\\pi\\int_a^b x f(x)dx. $$
+<p><b>③ 弧长与旋转曲面面积：</b>若 $f$ 在 $[a,b]$ 上连续可导，则曲线 $y=f(x)$ 的弧长为</p>
+$$ s=\\int_a^b\\sqrt{1+[f\'(x)]^2}\\,dx. $$
+<p>若另有 $f(x)\\ge0$，该曲线绕 $x$ 轴旋转所得曲面面积为</p>
+$$ S=2\\pi\\int_a^b f(x)\\sqrt{1+[f\'(x)]^2}\\,dx. $$`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（面积）求 $y=x^2$ 与 $y=2x$ 围成的面积</div>
 <p>交点：$x^2=2x\\Rightarrow x=0,2$。在 $(0,2)$ 上直线在上：</p>

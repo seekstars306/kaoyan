@@ -15,7 +15,7 @@ $$ \\iint_D f(x,y)\\,d\\sigma=\\lim\\sum_i f(\\xi_i,\\eta_i)\\Delta\\sigma_i $$
 <blockquote>几何意义：$f\\ge0$ 时是曲顶柱体体积；$f\\equiv1$ 时 $\\iint_D d\\sigma=$ 区域 $D$ 的<b>面积</b>——求不规则图形面积的一个妙招。</blockquote>`],
 ['def', '定义与公式',
 `<p><b>① 性质（与定积分平行）：</b>线性、区域可加（$D=D_1\\cup D_2$ 内部不重叠）、保序性、估值不等式。</p>
-<p><b>② 二重积分中值定理：</b>$f$ 在闭区域连续，存在点 $(\\xi,\\eta)\\in D$ 使 $\\iint_D f d\\sigma=f(\\xi,\\eta)\\cdot S_D$。</p>
+<p><b>② 二重积分中值定理：</b>若 $D$ 是面积 $S_D>0$ 的有界连通闭区域，$f$ 在 $D$ 上连续，则存在 $(\\xi,\\eta)\\in D$，使 $\\iint_D f\\,d\\sigma=f(\\xi,\\eta)S_D$。</p>
 <p><b>③ 计算总纲：</b>二重积分 = 化为<b>两次定积分</b>（累次积分）；选坐标系（直角 / 极坐标）、选次序是全部技术含量所在。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（比较大小）设 $D: x^2+y^2\\le1$，比较 $\\iint_D (x^2+y^2)\\,d\\sigma$ 与 $\\iint_D (x^2+y^2)^2 d\\sigma$</div>
@@ -56,9 +56,9 @@ $$ \\iint_D f\\,d\\sigma=\\int_a^b dx\\int_{\\varphi_1(x)}^{\\varphi_2(x)}f(x,y)
 $$ \\int_0^1 dx\\int_{x^2}^{x}xy\\,dy=\\int_0^1 x\\cdot\\frac{y^2}{2}\\Big|_{x^2}^{x}dx=\\frac12\\int_0^1(x^3-x^5)dx=\\frac12\\left(\\frac14-\\frac16\\right)=\\frac{1}{24} $$
 </div>
 <div class="ex-box"><div class="ex-t">例 2（选序）计算 $\\int_0^1 dx\\int_x^{\\sqrt x}\\dfrac{\\sin y}{y}dy$</div>
-<p>$\\tfrac{\\sin y}{y}$ 没有初等原函数——先 y 后 x 走不通，<b>必须换序</b>。原区域：$0\\le x\\le1$，$x\\le y\\le\\sqrt x$，换序后 $y\\in[0,1]$，$y^2\\le x\\le y$：</p>
+<p>$\\tfrac{\\sin y}{y}$ 通常没有初等原函数，按原次序无法直接用初等函数完成内层积分；这里换序后可先对 $x$ 积。原区域：$0\\le x\\le1$，$x\\le y\\le\\sqrt x$，换序后 $y\\in[0,1]$，$y^2\\le x\\le y$：</p>
 $$ \\int_0^1\\frac{\\sin y}{y}dy\\int_{y^2}^{y}dx=\\int_0^1\\frac{\\sin y}{y}(y-y^2)dy=\\int_0^1\\sin y(1-y)dy=1-\\sin1 $$
-<p class="muted">见 $\\tfrac{\\sin y}{y},\\ e^{-y^2},\\ \\tfrac{1}{\\ln y}$ 立刻警惕：这类"积不动"的函数是换序信号。</p></div>`],
+<p class="muted">见 $\\tfrac{\\sin y}{y},\\ e^{-y^2}$ 等对内层变量通常无初等原函数的形式，要检查能否换序后先积另一个变量；换序是否更简单还取决于区域和积分限。</p></div>`],
 ['warn', '易错点',
 `<p>• 定限先<b>画图</b>；不画图靠想象定限是事故第一来源。</p>
 <p>• 内层上下限可以含外层变量，但<b>外层限必须是常数</b>。</p>
@@ -66,7 +66,7 @@ $$ \\int_0^1\\frac{\\sin y}{y}dy\\int_{y^2}^{y}dx=\\int_0^1\\frac{\\sin y}{y}(y-
 ],
 quiz: [
 {id:'q1', q:'X 型区域 $D: 0\\le x\\le1,\\ x\\le y\\le 2x$，化成累次积分是？', opts:['$\\int_0^1dy\\int_x^{2x}f dx$', '$\\int_0^1dx\\int_x^{2x}f dy$', '$\\int_0^{2x}dx\\int_0^1 f dy$', '$\\int_0^1dx\\int_0^{2x} f dy$'], ans:1, exp:'X 型：外层 $x$ 从 0 到 1（常数限），内层 $y$ 从 $x$ 到 $2x$。'},
-{id:'q2', q:'被积函数为 $e^{-y^2}$ 时，合理的积分次序是？', opts:['先 $y$ 后 $x$', '先 $x$ 后 $y$', '无法计算', '只能极坐标'], ans:1, exp:'$e^{-y^2}$ 对 $y$ 无初等原函数，必须后积 $y$（先积 $x$）。'},
+{id:'q2', q:'在区域适合先对 $x$ 积分、且换序后积分限可写出的前提下，被积函数为 $e^{-y^2}$ 时，通常应选择哪种积分次序？', opts:['先 $y$ 后 $x$', '先 $x$ 后 $y$', '无法计算', '只能极坐标'], ans:1, exp:'$e^{-y^2}$ 对 $y$ 通常没有初等原函数；若区域允许，先积 $x$ 可把关于 $x$ 的长度因子算出，再对 $y$ 积分。具体题仍须结合区域定限。'},
 {id:'q3', q:'$\\int_0^1 dy\\int_0^{y} x\\,dx$ 等于？', opts:['$\\dfrac14$', '$\\dfrac16$', '$\\dfrac12$', '$\\dfrac13$'], ans:1, exp:'内层 $\\tfrac{y^2}{2}$；$\\int_0^1\\tfrac{y^2}{2}dy=\\tfrac16$。'}
 ]
 
@@ -78,17 +78,17 @@ secs: [
 ['why', '为什么学这一节',
 `<p>圆域、环域、扇形区域上的二重积分，直角坐标会算到怀疑人生，极坐标却是"量身定制"。看到 $x^2+y^2$ 就条件反射考虑极坐标——这是数二计算的性价比之王。</p>`],
 ['think', '直观理解',
-`<p><b>换一种铺网格方式：</b>直角坐标用"方格"铺地，极坐标用"<b>同心圆 + 放射线</b>"铺地。一个小格子的面积不是 $dr\\cdot d\\theta$，而是"半径 $r$ × 弧长 $rd\\theta$ × 厚 $dr$" $=r\\,dr\\,d\\theta$——那个多出来的 $r$ 是"远处的格子更大"的补偿。</p>
+`<p><b>换一种铺网格方式：</b>直角坐标用“方格”铺地，极坐标用“<b>同心圆 + 放射线</b>”铺地。半径为 $r$ 处的小扇形格，一边近似为弧长 $r\\,d\\theta$，另一边为厚度 $dr$，所以面积微元为 $r\\,dr\\,d\\theta$。多出的 $r$ 反映了离原点越远，同样角宽对应的弧越长。</p>
 <blockquote>换算三件套：$x=r\\cos\\theta,\\ y=r\\sin\\theta,\\ d\\sigma=r\\,dr\\,d\\theta$。</blockquote>`],
 ['def', '定义与公式',
 `<p><b>① 极坐标变换公式：</b></p>
 $$ \\iint_D f(x,y)d\\sigma=\\int_\\alpha^\\beta d\\theta\\int_{r_1(\\theta)}^{r_2(\\theta)}f(r\\cos\\theta, r\\sin\\theta)\\, r\\,dr $$
 <p><b>② 常见区域定限：</b>圆域 $x^2+y^2\\le R^2$：$\\theta\\in[0,2\\pi],\\ r\\in[0,R]$；上半圆：$\\theta\\in[0,\\pi]$；环域：$r$ 从 $R_1$ 到 $R_2$。</p>
-<p><b>③ 常用曲线的极坐标方程：</b>$x^2+y^2=R^2\\to r=R$；$x^2+y^2=2Rx\\to r=2R\\cos\\theta$；$y=x\\to\\theta=\\tfrac{\\pi}{4}$。</p>
+<p><b>③ 常用曲线的极坐标方程：</b>$x^2+y^2=R^2$（$R>0$）通常写成 $r=R$；$x^2+y^2=2Rx$ 可写成 $r=2R\\cos\\theta$，但描述区域时还要配合 $r\\ge0$ 选择角度范围。直线 $y=x$ 由两条反向射线组成，在 $r\\ge0$ 的约定下可用 $\\theta=\\tfrac{\\pi}{4}$ 或 $\\theta=\\tfrac{5\\pi}{4}$ 表示；若区域只取第一象限射线，才只写前者。</p>
 <p><b>④ 被积函数代换：</b>$x^2+y^2\\to r^2$，$\\sqrt{x^2+y^2}\\to r$。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（经典）计算 $\\iint_D e^{-x^2-y^2}d\\sigma$，$D: x^2+y^2\\le R^2$</div>
-<p>直角坐标下 $e^{-x^2}$ 积不动，极坐标秒杀：</p>
+<p>直角坐标下难以用初等函数直接积分，极坐标可先处理径向积分：</p>
 $$ \\int_0^{2\\pi}d\\theta\\int_0^R e^{-r^2}\\,r\\,dr=2\\pi\\cdot\\frac{1-e^{-R^2}}{2}=\\pi(1-e^{-R^2}) $$
 <p class="muted">这正是推导概率积分 $\\int_{-\\infty}^{+\\infty}e^{-x^2}dx=\\sqrt\\pi$ 的经典路线。</p></div>
 <div class="ex-box"><div class="ex-t">例 2 计算 $\\iint_D \\sqrt{x^2+y^2}\\,d\\sigma$，$D: x^2+y^2\\le 2x$</div>
@@ -118,7 +118,7 @@ secs: [
 <blockquote><b>对称性两个开关：</b>区域关于 y 轴对称 → 看被积函数对 $x$ 的奇偶；区域关于 $x$ 轴对称 → 看对 $y$ 的奇偶。<b>奇零偶倍</b>。</blockquote>`],
 ['def', '定义与公式',
 `<p><b>① 奇偶对称性：</b>$D$ 关于 $y$ 轴对称时</p>
-$$ \\iint_D f\\,d\\sigma=\\begin{cases}0, & f(-x,y)=-f(x,y)\\\\ 2\\iint_{D_{右}}f\\,d\\sigma, & f(-x,y)=f(x,y)\\end{cases} $$
+$$ \\iint_D f\\,d\\sigma=\\begin{cases}0, & f(-x,y)=-f(x,y)\\\\ 2\\iint_{D_{\\mathrm{right}}}f\\,d\\sigma, & f(-x,y)=f(x,y)\\end{cases} $$
 <p><b>② 轮换对称性：</b>若把 $D$ 中 $x,y$ 互换后区域不变，则 $\\iint_D f(x,y)d\\sigma=\\iint_D f(y,x)d\\sigma$。妙用：$\\iint_D x^2 d\\sigma=\\iint_D y^2 d\\sigma=\\tfrac12\\iint_D(x^2+y^2)d\\sigma$。</p>
 <p><b>③ 换序流程：</b>读限 → 画区域 → 改写为另一型 → 重定限。</p>`],
 ['ex', '例题精讲',
@@ -142,7 +142,7 @@ $$ \\iint_D x^2 d\\sigma=\\frac12\\iint_D(x^2+y^2)d\\sigma=\\frac12\\int_0^{2\\p
 ],
 quiz: [
 {id:'q1', q:'交换 $\\int_0^1 dy\\int_0^{y}f\\,dx$ 的次序得？', opts:['$\\int_0^1 dx\\int_x^{1}f\\,dy$', '$\\int_0^1 dx\\int_0^{x}f\\,dy$', '$\\int_0^1 dy\\int_0^{x}f\\,dx$', '$\\int_0^1 dx\\int_0^{1}f\\,dy$'], ans:0, exp:'区域为三角形 $0\\le x\\le y\\le1$；换 X 型：$x$ 从 0 到 1，$y$ 从 $x$ 到 1。'},
-{id:'q2', q:'$D$ 关于 $y$ 轴对称，$f(x,y)=x^3y$，则 $\\iint_D f\\,d\\sigma$ 等于？', opts:['$2\\iint_{D_{右}}$', '0', '不适用对称性', '$\\iint_D y\\,d\\sigma$'], ans:1, exp:'$x^3y$ 关于 $x$ 是奇函数（$(-x)^3y=-x^3y$），区域对称 → 积分为 0。'},
+{id:'q2', q:'$D$ 关于 $y$ 轴对称，$f(x,y)=x^3y$，则 $\\iint_D f\\,d\\sigma$ 等于？', opts:['$2\\iint_{D_{\\mathrm{right}}}f\\,d\\sigma$', '0', '不适用对称性', '$\\iint_D y\\,d\\sigma$'], ans:1, exp:'$x^3y$ 关于 $x$ 是奇函数（$(-x)^3y=-x^3y$），区域对称 → 积分为 0。'},
 {id:'q3', q:'利用轮换对称，$\\iint_D (3x^2-2y^2)d\\sigma$（$D$ 为圆 $x^2+y^2\\le R^2$）可化为？', opts:['$\\iint_D x^2 d\\sigma$', '$\\dfrac{1}{2}\\iint_D (x^2+y^2)d\\sigma$', '$\\iint_D (x^2+y^2)d\\sigma$', '$0$'], ans:1, exp:'$\\iint x^2=\\iint y^2=\\tfrac12\\iint(x^2+y^2)$，故原式 $=3\\cdot\\tfrac12-2\\cdot\\tfrac12=\\tfrac12$ 倍的 $\\iint(x^2+y^2)d\\sigma$。'}
 ]
 

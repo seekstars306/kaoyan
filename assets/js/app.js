@@ -114,9 +114,14 @@ function contentFile(courseId, chapId){
   return 'content/cs408/'+k.slice(6)+'.js';
 }
 function loadChapter(courseId, chapId){
-  return loadScript(contentFile(courseId, chapId)).then(function(){
-    return (window.CONTENT && window.CONTENT[contentKey(courseId, chapId)]) || null;
-  }).catch(function(){ return null; });
+  var file = contentFile(courseId, chapId), key = contentKey(courseId, chapId);
+  return loadScript(file).then(function(){
+    var content = window.CONTENT && window.CONTENT[key];
+    if(!content) throw new Error('内容文件已加载，但未注册章节：' + key);
+    return content;
+  }).catch(function(e){
+    throw new Error('章节加载失败（' + file + '）：' + (e && e.message ? e.message : e));
+  });
 }
 function visibleChapters(courseId){
   var c = course(courseId), shuyi = settings().showShuyi, out = [];
@@ -567,6 +572,10 @@ function viewLesson(courseId, chapId, lesId){
       AI_CONTEXT = null;
     }
     updateNav();
+  }).catch(function(e){
+    $('#view').innerHTML = '<div class="card empty-tip">章节加载失败：'+esc(e && e.message ? e.message : e)+'<br>请运行 <code>node scripts/validate-content.js</code> 检查内容文件。</div>';
+    AI_CONTEXT = null;
+    updateNav();
   });
 }
 
@@ -639,6 +648,9 @@ function viewChapterQuiz(courseId, chapId){
       var q = qs[i];
       if(q._head){ var h = document.createElement('div'); h.className='tag'; h.style.margin='10px 0 4px'; h.textContent='来自：'+q._head; d.parentNode.insertBefore(h, d); }
     });
+  }).catch(function(e){
+    $('#view').innerHTML = '<div class="card empty-tip">章节测验加载失败：'+esc(e && e.message ? e.message : e)+'<br>请运行 <code>node scripts/validate-content.js</code> 检查内容文件。</div>';
+    updateNav();
   });
 }
 
@@ -648,7 +660,7 @@ function viewHome(){
   var stM = courseStats('math'), stE = courseStats('english'), stC = courseStats('cs408');
   var last = Sget(K.last, null);
   var due = dueWords().length, wrongN = Object.keys(Sget(K.wrong, {})).length;
-  var html = '<h1 class="page-title">👋 欢迎回来，未来的研究生</h1>'
+  var html = '<h1 class="page-title">👋 欢迎回来，未来的研究生 <span class="tag" style="font-size:12px;font-weight:normal;vertical-align:middle;margin-left:4px">v1.0.0</span></h1>'
     + '<p class="page-sub">今天是 '+new Date().toLocaleDateString('zh-CN',{year:'numeric',month:'long',day:'numeric',weekday:'long'})+' · 目标：2028 考研（'+s.examDate+'）</p>';
   html += '<div class="dash-hero">'
     + '<div class="card countdown-card"><div class="lbl">距 '+esc(s.examDate)+' 初试</div><div class="days">'+countdownDays()+'</div><div class="lbl">天</div><small>在 <a href="#/settings" style="color:#fff">设置</a> 中可修改日期</small></div>'

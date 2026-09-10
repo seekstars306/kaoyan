@@ -89,8 +89,8 @@ secs: [
 <p>可推：The plan failed to win majority support. ✓（most rejected = 未能获得多数支持，一步即达）</p>
 <p>不可推：All members opposed the plan. ✗（most → all 过度）</p></div>
 <div class="ex-box"><div class="ex-t">例 2 数字推趋势</div>
-<p>原文：Online sales rose from 20% in 2020 to 45% in 2024.</p>
-<p>可推：Offline sales are losing ground. ✓（线上涨 → 线下让位，趋势合理）</p></div>`],
+<p>原文：Online sales <b>as a share of total sales</b> rose from 20% in 2020 to 45% in 2024.</p>
+<p>可推：The share of offline sales fell from 80% to 55%. ✓（题干明确给的是总销售额占比，两部分合计 100%，所以可直接推出；若只说线上销售额增长，则不能据此断言线下销售额下降。）</p></div>`],
 ['warn', '易错点',
 `<p>• 推理题选"和原文一模一样"的选项——恰是命题人放的"照抄陷阱"。</p>
 <p>• 用自己的生活常识补全逻辑链——推理必须每一步都有原文支撑。</p>`]
@@ -176,7 +176,7 @@ secs: [
 <p><b>负面：</b>negative, critical, doubtful, skeptical, pessimistic, disapproving, disappointed。</p>
 <p><b>中性/客观：</b>neutral, objective, indifferent（漠不关心——常为干扰项，作者写文章就不漠然）, impartial。</p>
 <p><b>谨慎（高频正确项）：</b>cautious, reserved, qualified（有保留的）, cautious approval。</p>
-<p><b>永不正确项：</b>indifferent（漠不关心）、confused（困惑）、hostile（敌意全开）、contemptuous（蔑视）——学术写作的体面决定态度必有分寸。</p>`],
+<p><b>不应预设的态度项：</b>indifferent、confused、hostile、contemptuous 等常是干扰项，但不能机械视为“永远错误”。若原文确有明确证据，任何态度词都可能成为答案；最终必须由作者用词和论证方式判断。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1 信号词定位</div>
 <p>原文：Critics call the policy <b>rushed</b>; its benefits, <b>however</b>, are <b>undeniable</b>.</p>
@@ -189,7 +189,7 @@ secs: [
 <p>• 让步（Admittedly/Of course）之后的 but/yet 才是作者本意。</p>`]
 ],
 quiz: [
-{id:'q1', q:'作者态度题中，以下哪类选项几乎永远不选？', opts:['cautious 谨慎的', 'indifferent 漠不关心的', 'critical 批评的', 'objective 客观的'], ans:1, exp:'作者费笔墨写文章就不会漠然；indifferent 是经典陪跑项。'},
+{id:'q1', q:'作者态度题中，若原文没有任何冷漠信号，以下哪项最应谨慎选择？', opts:['cautious 谨慎的', 'indifferent 漠不关心的', 'critical 批评的', 'objective 客观的'], ans:1, exp:'作者专门论述某问题时，indifferent 往往缺少依据，常作干扰项；但仍应以原文证据为准，不能把任何态度词绝对排除。'},
 {id:'q2', q:'"Admittedly the plan has merits. Yet its costs are huge." 作者态度是？', opts:['支持', '反对（让步后转折见真意）', '中立', '热情赞扬'], ans:1, exp:'Yet 之后是重心：成本巨大 → 负面态度。'}
 ]
 

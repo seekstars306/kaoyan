@@ -16,7 +16,7 @@ secs: [
 <p><b>② 动词/名词搭配：</b>固定搭配（take measures, play a role）与主宾搭配（invest money 不说 invest ideas）。</p>
 <p><b>③ 近义词辨析：</b>看搭配与语域：receive/get、damage/destroy（程度）；优先选"搭配最顺"的。</p>
 <p><b>④ 语境复现：</b>某个词在前文出现过，后文空格选同源词（原词复现或同根词）。</p>
-<p><b>蒙猜保底：</b>实在不会时，20 空里同一字母别超过 5 个（答案分布大体均匀）。</p>`],
+<p><b>不会时的处理：</b>先排除词性、搭配或逻辑明显不合的选项，再在剩余项中选择；不要用“同一字母不能超过若干个”之类的答案分布规律猜题，正式试卷不保证选项字母均匀分布。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1 逻辑定位</div>
 <p>Online courses are cheap. ___, they lack face-to-face interaction.</p>

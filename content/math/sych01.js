@@ -10,20 +10,22 @@ secs: [
 ['why', '为什么学这一节',
 `<p>空间解析几何是多元微积分的"地图"：三重积分的区域、曲面的切平面、曲线的切线，都靠向量语言描述。本节是后续一切空间问题的词汇表。</p>`],
 ['think', '直观理解',
-`<p><b>空间向量 = 三维箭头。</b>模长（长度）、方向角、投影是一套"测量工具"：<b>点积量"对齐程度"</b>（$\\vec a\\cdot\\vec b=|\\vec a||\\vec b|\\cos\\theta$），<b>叉积量"垂直新方向"</b>（法向量）。</p>
-<blockquote>点积为零 ⇔ 垂直；叉积的模 = 两向量张成的平行四边形面积——几何意义直接服务计算。</blockquote>`],
+`<p><b>空间向量 = 三维箭头。</b>模长（长度）、夹角和投影是一套“测量工具”。对两个非零向量，点积可以衡量方向的对齐程度，叉积给出同时垂直于二者的方向。</p>
+<blockquote>两个非零向量点积为零 ⇔ 垂直；叉积的模等于两向量张成的平行四边形面积。</blockquote>`],
 ['def', '定义与公式',
 `<p><b>① 基本量：</b>$\\vec a=(a_x,a_y,a_z)$，$|\\vec a|=\\sqrt{a_x^2+a_y^2+a_z^2}$；两点距离公式同理。</p>
-<p><b>② 点积（数量积）：</b></p>
+<p><b>② 点积（数量积）：</b>当 $\\vec a,\\vec b$ 非零、夹角为 $\\theta$ 时，</p>
 $$ \\vec a\\cdot\\vec b=a_xb_x+a_yb_y+a_zb_z=|\\vec a||\\vec b|\\cos\\theta $$
 <p><b>③ 叉积（向量积）：</b></p>
 $$ \\vec a\\times\\vec b=\\begin{vmatrix}\\vec i&\\vec j&\\vec k\\\\a_x&a_y&a_z\\\\b_x&b_y&b_z\\end{vmatrix},\\qquad |\\vec a\\times\\vec b|=|\\vec a||\\vec b|\\sin\\theta $$
-<p>方向按右手法则垂直于两向量所在平面。$\\vec a\\parallel\\vec b \\iff \\vec a\\times\\vec b=\\vec0$。</p>
+<p>方向按右手法则垂直于两向量所在平面。一般地，$\\vec a\\times\\vec b=\\vec0$ 当且仅当二者线性相关；若二者都非零，这等价于平行。</p>
 <p><b>④ 混合积：</b>$[\\vec a\\vec b\\vec c]=(\\vec a\\times\\vec b)\\cdot\\vec c=$ 三向量张成平行六面体的有向体积；为零 ⇔ 三向量共面。</p>`],
 ['ex', '例题精讲',
-`<div class="ex-box"><div class="ex-t">例 1 求 $\\vec a=(1,2,3)$ 在 $\\vec b=(1,1,1)$ 上的投影</div>
-<p>$\\vec a\\cdot\\vec b=6$，$|\\vec b|=\\sqrt3$。</p>
-$$ \\mathrm{Prj}_{\\vec b}\\vec a=\\frac{\\vec a\\cdot\\vec b}{|\\vec b|}=2\\sqrt3 $$
+`<div class="ex-box"><div class="ex-t">例 1 求 $\\vec a=(1,2,3)$ 在 $\\vec b=(1,1,1)$ 方向上的标量投影与向量投影</div>
+<p>$\\vec a\\cdot\\vec b=6$，$|\\vec b|=\\sqrt3$。标量投影（有向投影长度）为</p>
+$$ \\operatorname{comp}_{\\vec b}\\vec a=\\frac{\\vec a\\cdot\\vec b}{|\\vec b|}=2\\sqrt3 $$
+<p>向量投影还要乘以 $\\vec b$ 方向的单位向量：</p>
+$$ \\operatorname{proj}_{\\vec b}\\vec a=\\frac{\\vec a\\cdot\\vec b}{|\\vec b|^2}\\vec b=2(1,1,1)=(2,2,2) $$
 </div>
 <div class="ex-box"><div class="ex-t">例 2 求同时垂直于 $\\vec a=(1,0,1)$、$\\vec b=(0,1,1)$ 的单位向量</div>
 $$ \\vec a\\times\\vec b=\\begin{vmatrix}\\vec i&\\vec j&\\vec k\\\\1&0&1\\\\0&1&1\\end{vmatrix}=(-1,-1,1),\\qquad \\pm\\frac{1}{\\sqrt3}(-1,-1,1) $$
@@ -34,7 +36,7 @@ $$ \\vec a\\times\\vec b=\\begin{vmatrix}\\vec i&\\vec j&\\vec k\\\\1&0&1\\\\0&1
 <p>• 单位化别忘了除以模长。</p>`]
 ],
 quiz: [
-{id:'q1', q:'$\\vec a\\perp\\vec b$ 的充要条件是？', opts:['$\\vec a\\times\\vec b=\\vec0$', '$\\vec a\\cdot\\vec b=0$', '$\\vec a=\\vec b$', '$\\vec a\\cdot\\vec b=1$'], ans:1, exp:'点积为零 ⇔ 夹角 $90°$。叉积为零对应平行。'},
+{id:'q1', q:'当 $\\vec a,\\vec b$ 都是非零向量时，$\\vec a\\perp\\vec b$ 的充要条件是？', opts:['$\\vec a\\times\\vec b=\\vec0$', '$\\vec a\\cdot\\vec b=0$', '$\\vec a=\\vec b$', '$\\vec a\\cdot\\vec b=1$'], ans:1, exp:'对非零向量，$\\vec a\\cdot\\vec b=|\\vec a||\\vec b|\\cos\\theta$，所以点积为零当且仅当夹角为 $90^\\circ$。叉积为零表示线性相关；二者非零时等价于平行。'},
 {id:'q2', q:'$|\\vec a\\times\\vec b|$ 的几何意义是？', opts:['两点距离', '平行四边形面积', '三角形周长', '投影长度'], ans:1, exp:'叉积的模 = 以两向量为邻边的平行四边形面积。'}
 ]
 
@@ -51,9 +53,9 @@ secs: [
 ['def', '定义与公式',
 `<p><b>① 平面：</b>点法式 $A(x-x_0)+B(y-y_0)+C(z-z_0)=0$（$\\vec n=(A,B,C)$）；一般式 $Ax+By+Cz+D=0$。</p>
 <p><b>② 直线：</b>对称式（上式）；参数式；一般式（两平面交线）。方向向量可取两平面法向量的叉积。</p>
-<p><b>③ 夹角与距离：</b>两平面夹角 = 法向量夹角（取锐角）；点到平面距离：</p>
+<p><b>③ 夹角与距离：</b>两平面的夹角取两个法向量夹角中的较小者，范围为 $[0,\\tfrac{\\pi}{2}]$（可能是直角）；点到平面距离：</p>
 $$ d=\\frac{|Ax_0+By_0+Cz_0+D|}{\\sqrt{A^2+B^2+C^2}} $$
-<p><b>④ 线面关系：</b>$\\vec s\\cdot\\vec n=0$ 线在面内或平行；$\\vec s\\parallel\\vec n$ 垂直。</p>`],
+<p><b>④ 线面关系：</b>设直线方向向量为 $\\vec s$、平面法向量为 $\\vec n$。$\\vec s\\cdot\\vec n=0$ 只说明直线方向与法向量垂直，因此直线可能平行于平面，也可能位于平面内；还要代入直线上一点判断是否在平面内。$\\vec s\\parallel\\vec n$ 时直线垂直于平面。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1 求过点 $(1,2,-1)$ 且法向量 $\\vec n=(2,1,3)$ 的平面</div>
 $$ 2(x-1)+(y-2)+3(z+1)=0 $$
@@ -62,7 +64,7 @@ $$ 2(x-1)+(y-2)+3(z+1)=0 $$
 $$ d=\\frac{|2\\cdot1+0-2+1|}{\\sqrt{4+1+1}}=\\frac{1}{\\sqrt6} $$
 </div>`],
 ['warn', '易错点',
-`<p>• 一般式 $Ax+By+Cz+D=0$ 中 $A,B,C$ 全为零无意义；缺某变量对应特殊位置（如 $C=0$ 平行 z 轴）。</p>
+`<p>• 一般式 $Ax+By+Cz+D=0$ 中 $A,B,C$ 不能全为零。缺某个变量只说明该平面平行于该变量对应的坐标轴方向；例如 $C=0$ 时平面平行于 $z$ 轴，若同时 $A=B=0$ 则方程不表示平面。</p>
 <p>• 对称式中分量为 0 时理解为分子为 0（$m=0$ 即 $x=x_0$）。</p>`]
 ],
 quiz: [
@@ -83,7 +85,7 @@ secs: [
 <p><b>五大二次曲面认脸：</b>椭球、旋转抛物面（碗）、圆锥面、单叶/双叶双曲面、双曲抛物面（马鞍）。</p>`],
 ['def', '定义与公式',
 `<p><b>① 柱面：</b>母线平行缺失变量对应的轴。</p>
-<p><b>② 旋转面构造规则：</b>曲线 $f(y,z)=0$ 绕 z 轴 → $f\\left(\\pm\\sqrt{x^2+y^2}, z\\right)=0$；绕 y 轴 → $f\\left(y,\\pm\\sqrt{x^2+z^2}\\right)=0$。</p>
+<p><b>② 旋转面构造规则：</b>设母线位于 $yOz$ 平面，方程为 $f(y,z)=0$。绕 $z$ 轴旋转后，空间点到 $z$ 轴的距离为 $\\rho=\\sqrt{x^2+y^2}$；旋转面由满足 $f(\\rho,z)=0$ 或 $f(-\\rho,z)=0$ 的点组成，也就是把母线中可能出现的 $y$ 用“$|y|=\\rho$”消去。只有当母线关于 $z$ 轴对称，或方程只含 $y^2$ 时，才能不加说明地直接把 $y^2$ 换成 $x^2+y^2$。绕其他坐标轴时同理。</p>
 <p><b>③ 二次曲面标准形：</b></p>
 <p>• 椭球 $\\dfrac{x^2}{a^2}+\\dfrac{y^2}{b^2}+\\dfrac{z^2}{c^2}=1$；</p>
 <p>• 旋转抛物面 $z=x^2+y^2$；圆锥面 $z^2=x^2+y^2$；</p>

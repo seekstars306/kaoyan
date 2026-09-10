@@ -11,18 +11,19 @@ secs: [
 `<p>栈是"后进先出 LIFO"的限制性线性表。408 每年必考<b>出栈序列合法性判断</b>（卡特兰数），函数调用、表达式求值、递归转非递归全靠它。</p>`],
 ['think', '直观理解',
 `<p><b>栈 = 叠盘子：</b>只能从顶上放（push）、从顶上拿（pop）。最先放的盘子最后才能拿到。</p>
-<blockquote><b>n 个元素依次入栈的合法出栈序列数 = 卡特兰数 C(2n,n)/(n+1)。</b>n=3 时有 5 种：任意 3、1、2 的排列中，"3 1 2"非法（3 先出说明 1、2 已在栈中且 2 在 1 上，2 必须先于 1 出）。</blockquote>
-<p><b>判断法（手动模拟）：</b>依次入栈，每入一个就尽量出栈；模拟目标序列——能对上就合法。</p>`],
+<blockquote>在 n 个<b>互不相同</b>的元素按固定次序依次入栈、栈容量足够且允许边入边出的前提下，合法出栈序列数是卡特兰数 $\\dfrac{1}{n+1}\\binom{2n}{n}$。n=3 时共有 5 种；例如 3,1,2 非法，因为 3 出栈时 1、2 已在栈中且 2 压在 1 上，2 必须先于 1 出。</blockquote>
+<p><b>判断法（手动模拟）：</b>按固定入栈序列推进；若栈顶等于目标序列的下一个元素就出栈，否则继续入栈。元素耗尽后仍无法匹配即非法。</p>`],
 ['def', '栈的结构与操作',
 `<p><b>① 顺序栈：</b></p>
 <pre class="code">#define MaxSize 50
 typedef struct {
     int data[MaxSize];
-    int top;            /* 栈顶指针 */
+    int top;            /* 栈顶元素的数组下标 */
 } SqStack;
-/* 进栈：s-&gt;top++; s-&gt;data[s-&gt;top] = x;  先移指针再存 */
-/* 出栈：x = s-&gt;top elem; s-&gt;top--;      先取再退 */</pre>
-<p>判空 top == -1（0 号起）；判满 top == MaxSize-1。</p>
+/* 初始：s-&gt;top = -1; */
+/* 进栈：s-&gt;data[++s-&gt;top] = x;  先移指针再存 */
+/* 出栈：x = s-&gt;data[s-&gt;top--];  先取再退 */</pre>
+<p>上述操作都应先判满或判空；判空 <code>top == -1</code>，判满 <code>top == MaxSize-1</code>。</p>
 <p><b>② 共享栈：</b>两个栈共用一个数组，栈顶设在两端、相向生长——判满 <code>top1 + 1 == top2</code>。空间利用率翻倍的考点。</p>
 <p><b>③ 链栈：</b>头插法的单链表，top 即头指针，无栈满问题。</p>
 <p><b>④ 应用：</b>括号匹配、表达式求值（中缀转后缀）、函数调用栈、递归、进制转换。</p>`],
@@ -52,7 +53,7 @@ secs: [
 `<p>队列是"先进先出 FIFO"：排队买饭。BFS 遍历、缓冲区、打印队列、操作系统就绪队列全是它。<b>循环队列的判满判空</b>是 408 顶流考点，没有之一。</p>`],
 ['think', '直观理解',
 `<p><b>队列 = 排队：</b>队尾入队（rear），队头出队（front）。若用普通数组，出队后前部空间浪费——把数组<b>首尾相接成环</b>（下标取模），就是循环队列。</p>
-<blockquote><b>循环队列的"牺牲一格"方案：</b>front 指队头，rear 指队尾<b>后一位置</b>：<br>• 入队：<code>rear = (rear+1) % MaxSize</code><br>• 出队：<code>front = (front+1) % MaxSize</code><br>• 队中元素个数：<b>(rear - front + MaxSize) % MaxSize</b><br>• 判满：**(rear+1) % MaxSize == front**（牺牲一格）；判空：rear == front</blockquote>`],
+<blockquote><b>循环队列的"牺牲一格"方案：</b>front 指队头，rear 指队尾<b>后一位置</b>：<br>• 入队：<code>rear = (rear+1) % MaxSize</code><br>• 出队：<code>front = (front+1) % MaxSize</code><br>• 队中元素个数：<b>(rear - front + MaxSize) % MaxSize</b><br>• 判满：<b><code>(rear+1) % MaxSize == front</code></b>（牺牲一格）；判空：<code>rear == front</code></blockquote>`],
 ['def', '队列结构与变体',
 `<p><b>① 循环队列（牺牲一格法）</b>——上面口诀必背。</p>
 <p><b>② 增设 size 变量方案：</b>不牺牲格子，用 size==0 判空、size==MaxSize 判满。</p>

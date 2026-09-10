@@ -16,9 +16,9 @@ secs: [
 `<p><b>① 基本公式：</b></p>
 $$ P(A\\cup B)=P(A)+P(B)-P(AB) $$
 $$ P(\\bar A)=1-P(A),\\qquad P(A|B)=\\frac{P(AB)}{P(B)}\\ (P(B)>0) $$
-<p><b>② 乘法与独立性：</b>$P(AB)=P(A)P(B|A)$；$A,B$ 独立 $\\iff P(AB)=P(A)P(B)$。</p>
-<p><b>③ 全概率与贝叶斯：</b>$B_1,\\cdots,B_n$ 完备（互斥并全集）：</p>
-$$ P(A)=\\sum_iP(B_i)P(A|B_i),\\qquad P(B_j|A)=\\frac{P(B_j)P(A|B_j)}{P(A)} $$
+<p><b>② 乘法与独立性：</b>当 $P(A)>0$ 时，$P(AB)=P(A)P(B|A)$；$A,B$ 独立 $\\iff P(AB)=P(A)P(B)$。</p>
+<p><b>③ 全概率与贝叶斯：</b>若 $B_1,\\cdots,B_n$ 两两互斥、并集为样本空间，且每个 $P(B_i)>0$，则</p>
+$$ P(A)=\\sum_iP(B_i)P(A|B_i),\\qquad P(B_j|A)=\\frac{P(B_j)P(A|B_j)}{P(A)}\\quad(P(A)>0) $$
 <p><b>④ 两大模型：</b>古典概型（有限等可能）、几何概型（区域等可能）。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（古典概型）3 个人随机坐 3 个座位，甲坐 1 号的概率？</div>
@@ -45,13 +45,13 @@ secs: [
 ['why', '为什么学这一节',
 `<p>随机变量把随机试验的结果"数字化"：离散型用分布律、连续型用密度函数 $f(x)$ 描述全貌；分布函数 $F(x)$ 统一两者。这是数一概率大题的第一计算场。</p>`],
 ['think', '直观理解',
-`<p><b>分布函数 $F(x)=P(X\\le x)$ 是"累积到 x 的雨量"。</b>连续型里 $F$ 是密度 $f$ 的变上限积分：<b>$F\'=f$</b>——概率密度是"概率的浓度"，$f(x)$ 本身不是概率（可大于 1），$f(x)dx$ 才是小区间概率。</p>
-<blockquote>$P(a<X\\le b)=F(b)-F(a)=\\displaystyle\\int_a^bf(x)dx$。三大件关系：分布律/密度 → 分布函数 → 概率计算。</blockquote>`],
+`<p><b>分布函数 $F(x)=P(X\\le x)$ 是"累积到 x 的雨量"。</b>连续型里 $F(x)=\\displaystyle\\int_{-\\infty}^{x}f(t)dt$；若密度 $f$ 在 $x$ 处连续，才可在该点写成 $F\'(x)=f(x)$（一般情形下几乎处处成立）。概率密度是"概率的浓度"，$f(x)$ 本身不是概率且可以大于 1；$f(x)\\,dx$ 只是很短区间概率的直观近似。</p>
+<blockquote>精确公式是 $P(a<X\\le b)=F(b)-F(a)=\\displaystyle\\int_a^bf(x)dx$。三大件关系：分布律/密度 → 分布函数 → 概率计算。</blockquote>`],
 ['def', '定义与公式',
 `<p><b>① 分布函数性质：</b>单调不减；$0\\le F\\le1$；$F(-\\infty)=0,\\ F(+\\infty)=1$；右连续（连续型处处连续）。</p>
 <p><b>② 密度性质：</b>$f\\ge0$；$\\displaystyle\\int_{-\\infty}^{+\\infty}f=1$。</p>
-<p><b>③ 常见离散分布：</b>二项 $B(n,p)$（$n$ 重伯努利成功次数，$P(X=k)=\\binom nkp^kq^{n-k}$）；泊松 $P(\\lambda)$（$\\dfrac{\\lambda^ke^{-\\lambda}}{k!}$）；几何分布。</p>
-<p><b>④ 常见连续分布：</b>均匀 $U(a,b)$（$f=\\tfrac{1}{b-a}$）；指数 $E(\\lambda)$（$f=\\lambda e^{-\\lambda x},\\ x>0$，<b>无记忆性</b>）；正态 $N(\\mu,\\sigma^2)$（钟形，标准化 $\\dfrac{X-\\mu}{\\sigma}\\sim N(0,1)$，$\\Phi(-x)=1-\\Phi(x)$）。</p>`],
+<p><b>③ 常见离散分布：</b>二项 $B(n,p)$（$n$ 为正整数，$0\\le p\\le1$，$q=1-p$；$n$ 重独立伯努利试验的成功次数，$P(X=k)=\\binom nkp^kq^{n-k}$，$k=0,1,\\ldots,n$）；泊松 $P(\\lambda)$（$\\lambda>0$，$P(X=k)=\\dfrac{\\lambda^ke^{-\\lambda}}{k!}$，$k=0,1,\\ldots$）；几何分布使用前要先说明“首次成功所需试验次数”是从 1 还是从 0 计数。</p>
+<p><b>④ 常见连续分布：</b>均匀 $U(a,b)$（$a<b$，区间内 $f=\\tfrac{1}{b-a}$）；指数 $E(\\lambda)$（$\\lambda>0$，$f(x)=\\lambda e^{-\\lambda x},\\ x>0$，具有无记忆性）；正态 $N(\\mu,\\sigma^2)$（$\\sigma>0$，钟形；标准化 $\\dfrac{X-\\mu}{\\sigma}\\sim N(0,1)$，$\\Phi(-x)=1-\\Phi(x)$）。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1 设 $f(x)=\\begin{cases}ax, & 0<x<1\\\\0, & \\text{其他}\\end{cases}$，求 $a$ 与 $P(X>\\tfrac12)$</div>
 <p>归一化：$\\displaystyle\\int_0^1 ax\\,dx=\\frac a2=1\\Rightarrow a=2$。</p>
@@ -66,7 +66,7 @@ $$ P\\left(X>\\frac12\\right)=\\int_{1/2}^{1}2x\\,dx=1-\\frac14=\\frac34 $$
 <p>• 连续型单点概率为 0：$P(X=a)=0$，因此 $P(X\\ge a)=P(X>a)$。</p>`]
 ],
 quiz: [
-{id:'q1', q:'连续型随机变量 $P(X=a)$ 等于？', opts:['$f(a)$', '$0$', '$F(a)$', '不确定'], ans:1, exp:'单点概率为零（$F$ 在该点连续，没有跳跃）。'},
+{id:'q1', q:'连续型随机变量 $P(X=a)$ 等于？', opts:['$f(a)$', '$0$', '$F(a)$', '$1$'], ans:1, exp:'连续型随机变量的分布函数连续，单点概率 $P(X=a)=F(a)-F(a^-)=0$。密度值 $f(a)$ 和累计概率 $F(a)$ 都不是单点概率。'},
 {id:'q2', q:'$X\\sim N(0,1)$，$\\Phi(1)=0.8413$，则 $P(X<-1)=$？', opts:['0.8413', '0.1587', '0.5', '0.3174'], ans:1, exp:'对称性 $\\Phi(-1)=1-0.8413=0.1587$。'}
 ]
 
@@ -79,27 +79,28 @@ secs: [
 `<p>两个随机变量同时变化的规律由联合分布刻画；独立性判断、边缘分布、条件分布与两个函数之和的分布（卷积雏形）是数一概率的难点高地。</p>`],
 ['think', '直观理解',
 `<p><b>联合分布 = 双变量"地形图"。</b>离散型是二维表格；连续型是曲面密度 $f(x,y)$，总体积必须为 1。</p>
-<blockquote><b>边缘分布 = 沿一个方向"投影压缩"</b>：$f_X(x)=\\displaystyle\\int_{-\\infty}^{+\\infty}f(x,y)dy$。<br><b>独立性 = 地形图可分解</b>：$f(x,y)=f_X(x)f_Y(y)$ 处处成立。</blockquote>`],
+<blockquote><b>边缘分布 = 沿一个方向“投影压缩”</b>：$f_X(x)=\\displaystyle\\int_{-\\infty}^{+\\infty}f(x,y)dy$。<br><b>独立性 = 地形图可分解</b>：若有联合密度，则 $f(x,y)=f_X(x)f_Y(y)$ 几乎处处成立。</blockquote>`],
 ['def', '定义与公式',
 `<p><b>① 联合分布函数：</b>$F(x,y)=P(X\\le x, Y\\le y)$；矩形概率 $P(a<X\\le b, c<Y\\le d)=F(b,d)-F(a,d)-F(b,c)+F(a,c)$。</p>
 <p><b>② 连续型：</b>$f(x,y)\\ge0$，全面积积分为 1；边缘密度按上述积分。</p>
-<p><b>③ 独立性：</b>任意 $(x,y)$ 处 $F(x,y)=F_X(x)F_Y(y)$（密度：$f=f_Xf_Y$）；<b>联合正态：独立 ⟺ $\\rho=0$</b>（一般分布不成立！）。</p>
-<p><b>④ 条件分布：</b>$f_{X|Y}(x|y)=\\dfrac{f(x,y)}{f_Y(y)}$。</p>
-<p><b>⑤ $Z=X+Y$ 的密度（卷积）：</b>$f_Z(z)=\\displaystyle\\int_{-\\infty}^{+\\infty}f(x,z-x)dx$；独立时 $f_Z=\\int f_X(x)f_Y(z-x)dx$。</p>`],
+<p><b>③ 独立性：</b>对任意 $(x,y)$，$F(x,y)=F_X(x)F_Y(y)$；若存在联合密度，则等价于 $f(x,y)=f_X(x)f_Y(y)$ 几乎处处成立。<b>二维联合正态且两个方差为正时，独立 $\\iff \\rho=0$</b>；一般分布没有这个逆推结论。</p>
+<p><b>④ 条件分布：</b>对满足 $f_Y(y)>0$ 的 $y$，$f_{X|Y}(x|y)=\\dfrac{f(x,y)}{f_Y(y)}$。</p>
+<p><b>⑤ $Z=X+Y$ 的密度：</b>一般连续型联合密度下，$f_Z(z)=\\displaystyle\\int_{-\\infty}^{+\\infty}f_{X,Y}(x,z-x)dx$；若 $X,Y$ 独立，才可进一步写成卷积 $f_Z(z)=\\int f_X(x)f_Y(z-x)dx$。</p>`],
 ['ex', '例题精讲',
-`<div class="ex-box"><div class="ex-t">例 1（独立性判断）$f(x,y)=\\begin{cases}6xy, & 0<x<1,\\ 0<y<1\\\\0, & \\text{其他}\\end{cases}$，$X,Y$ 独立吗？</div>
-<p>$f_X(x)=\\displaystyle\\int_0^1 6xy\\,dy=3x$（$0<x<1$）；$f_Y(y)=3y$。$f_Xf_Y=9xy\\neq6xy$ → <b>不独立</b>。</p></div>
-<div class="ex-box"><div class="ex-t">例 2（均匀三角形区域）$f(x,y)=1$（$0<x<y<1$），求 $P(X+Y\\le1)$</div>
-<p>区域 $0<x<y,\\ x+y\\le1$ 与 $x<y$ 交于 $x<\\tfrac12$：</p>
-$$ \\int_0^{1/2}dx\\int_x^{1-x}dy=\\int_0^{1/2}(1-2x)dx=\\frac14 $$
-<p class="muted">二维积分先画联合密度非零区域，再定二重积分限。</p></div>`],
+`<div class="ex-box"><div class="ex-t">例 1（独立性判断）设联合密度 $f(x,y)=4xy$（$0<x<1,\ 0<y<1$），其他位置为 0，判断 $X,Y$ 是否独立</div>
+<p>先验归一化：$\\int_0^1\\int_0^1 4xy\\,dxdy=1$。边缘密度为 $f_X(x)=\\displaystyle\\int_0^1 4xy\\,dy=2x$，$f_Y(y)=2y$。</p>
+<p>在支撑集上 $f_X(x)f_Y(y)=4xy=f(x,y)$，支撑集外也都为 0，所以 <b>$X,Y$ 独立</b>。</p></div>
+<div class="ex-box"><div class="ex-t">例 2（均匀三角形区域）设联合密度 $f(x,y)=2$（$0<x<y<1$），其他位置为 0，求 $P(X+Y\\le1)$</div>
+<p>三角形支撑集的面积为 $\\tfrac12$，乘密度 2 后总概率为 1。事件区域满足 $0<x<y<1-x$，因此 $0<x<\\tfrac12$：</p>
+$$ P(X+Y\\le1)=\\int_0^{1/2}dx\\int_x^{1-x}2\\,dy=2\\int_0^{1/2}(1-2x)dx=\\frac12 $$
+<p class="muted">二维概率必须先确认联合密度已归一化，再画支撑集与事件区域的交集。</p></div>`],
 ['warn', '易错点',
 `<p>• 边缘独立才能由边缘恢复联合；"边缘都是正态 ⇒ 联合正态"是错误命题。</p>
 <p>• 联合正态里 $\\rho=0$ 恰好等价独立，是特例，别推广。</p>
 <p>• 求区域概率先画支撑集（密度非零范围），限要落在交集里。</p>`]
 ],
 quiz: [
-{id:'q1', q:'$X,Y$ 独立（连续型）$\\iff$？', opts:['$f(x,y)=f_X(x)f_Y(y)$ 处处成立', '$f_X=f_Y$', '$E(X)=E(Y)$', '$F(x,y)$ 连续'], ans:0, exp:'独立性 = 联合密度可分解为边缘之积。'},
+{id:'q1', q:'$X,Y$ 独立（连续型）$\\iff$？', opts:['$f(x,y)=f_X(x)f_Y(y)$ 几乎处处成立', '$f_X=f_Y$', '$E(X)=E(Y)$', '$F(x,y)$ 连续'], ans:0, exp:'连续型随机变量独立当且仅当联合密度几乎处处可分解为边缘密度之积；密度在零测集上的取值不影响概率。'},
 {id:'q2', q:'边缘密度 $f_X(x)$ 的计算式是？', opts:['$f(x,x)$', '$\\displaystyle\\int_{-\\infty}^{+\\infty}f(x,y)dy$', '$\\dfrac{\\partial F}{\\partial y}$', '$f(x,y)dy$'], ans:1, exp:'沿另一变量积分"投影"。'}
 ]
 
@@ -114,12 +115,12 @@ secs: [
 `<p><b>期望 = 加权平均的重心。</b>抽检平均分、彩票平均回报都是它。方差 $E[(X-EX)^2]$ 量"离重心多远"（单位平方，标准差开方还原）。</p>
 <blockquote><b>相关系数 = 标准化后的协方差</b>，量"线性关联强度"：$|\\rho|=1$ 完全线性，$\\rho=0$ 不（线性）相关——但 $\\rho=0$ 不代表独立！</blockquote>`],
 ['def', '定义与公式',
-`<p><b>① 期望：</b>离散 $\\sum x_ip_i$；连续 $\\displaystyle\\int xf(x)dx$。线性性：$E(aX+b)=aEX+b$；$E(X\\pm Y)=EX\\pm EY$（无条件成立！）。</p>
+`<p><b>① 期望：</b>离散型在级数绝对收敛、连续型在 $\\int |x|f(x)dx<+\\infty$ 时定义期望。此时期望具有线性性：$E(aX+b)=aEX+b$；若 $E(X),E(Y)$ 存在，则 $E(X\\pm Y)=EX\\pm EY$，不要求 $X,Y$ 独立。</p>
 <p><b>② 方差：</b></p>
 $$ D(X)=E(X^2)-[E(X)]^2\\qquad(\\text{计算主力公式}) $$
 $$ D(aX+b)=a^2D(X);\\quad D(X\\pm Y)=DX+DY\\pm2\\mathrm{Cov}(X,Y) $$
 <p><b>③ 常见分布的期望方差：</b>二项 $np,\\ npq$；泊松 $\\lambda,\\ \\lambda$；均匀 $\\tfrac{a+b}{2},\\ \\tfrac{(b-a)^2}{12}$；指数 $\\tfrac1\\lambda,\\ \\tfrac1{\\lambda^2}$；正态 $\\mu,\\ \\sigma^2$。</p>
-<p><b>④ 协方差与相关：</b>$\\mathrm{Cov}(X,Y)=E(XY)-EX\\cdot EY$；$\\rho=\\dfrac{\\mathrm{Cov}}{\\sqrt{DX\\cdot DY}}$。独立 ⇒ 不相关（反之不然）。</p>`],
+<p><b>④ 协方差与相关：</b>$\\mathrm{Cov}(X,Y)=E(XY)-EX\\cdot EY$。当 $0<D(X)<+\\infty$ 且 $0<D(Y)<+\\infty$ 时，相关系数定义为 $\\rho=\\dfrac{\\mathrm{Cov}(X,Y)}{\\sqrt{D(X)D(Y)}}$。在有关期望存在的条件下，独立 ⇒ 不相关（反之不然）。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1 $f(x)=\\begin{cases}2x, & 0<x<1\\\\0,\\text{其他}\\end{cases}$，求 $E(X)$ 与 $D(X)$</div>
 <p>$E(X)=\\displaystyle\\int_0^1x\\cdot2x\\,dx=\\tfrac23$；$E(X^2)=\\displaystyle\\int_0^1x^2\\cdot2x\\,dx=\\tfrac12$。</p>
@@ -130,14 +131,14 @@ $$ D(X)=\\frac12-\\frac49=\\frac{1}{18} $$
 $$ E(2X+1)=7,\\qquad D(2X+1)=4\\times2.1=8.4 $$
 <p class="muted">线性变换下方差只乘 $a^2$，常数 $b$ 不参与。</p></div>`],
 ['warn', '易错点',
-`<p>• $D(X\\pm Y)=DX+DY$ 只在<b>独立</b>（或不相关）时成立；期望的线性才是无条件的。</p>
+`<p>• $D(X\\pm Y)=DX+DY$ 在 $X,Y$ 不相关时成立；独立且方差存在会推出不相关。期望的线性不要求独立，但相关期望必须存在。</p>
 <p>• "不相关 = 独立"错误；反例 $X\\sim U(-1,1)$，$Y=X^2$：$\\mathrm{Cov}=0$ 但显然不独立。</p>
 <p>• 二项方差是 $npq$ 不是 $np$。</p>`]
 ],
 quiz: [
 {id:'q1', q:'$D(X)$ 的计算公式是？', opts:['$E(X^2)-E(X)$', '$E(X^2)-[E(X)]^2$', '$[E(X)]^2-E(X^2)$', '$E[(X-E(X^2))^2]$'], ans:1, exp:'平方的期望减期望的平方。'},
 {id:'q2', q:'$X\\sim P(\\lambda)$（泊松），则 $E(X), D(X)$ 为？', opts:['$\\lambda,\\ \\lambda^2$', '$\\lambda,\\ \\lambda$', '$\\tfrac1\\lambda,\\ \\tfrac1{\\lambda^2}$', '$n\\lambda,\\ n\\lambda$'], ans:1, exp:'泊松分布期望方差都是 $\\lambda$。'},
-{id:'q3', q:'$\\rho_{XY}=0$ 能推出 $X,Y$ 独立吗？', opts:['能', '不能（只是无线性相关）', '正态时总能', '连续型总能'], ans:1, exp:'不相关不等于独立。注：二维正态分布是例外（$\\rho=0\\iff$ 独立）。'}
+{id:'q3', q:'仅由 $\\rho_{XY}=0$ 能推出 $X,Y$ 独立吗？', opts:['一般能', '一般不能；二维联合正态且两个方差为正时可以', '只要两个边缘分布都是正态就能', '只要 $X,Y$ 都是连续型就能'], ans:1, exp:'一般分布中不相关不等于独立。若 $(X,Y)$ 服从二维联合正态分布且两个方差为正，则 $\\rho=0\\iff X,Y$ 独立；只有边缘正态还不够。'}
 ]
 
 },
@@ -148,23 +149,24 @@ secs: [
 ['why', '为什么学这一节',
 `<p>这两组定理是"频率稳定性"与"正态无处不在"的理论根基：大数定律说"样本平均趋于期望"，中心极限定理说"大量独立小扰动之和近似正态"。数一以概念选择题为主。</p>`],
 ['think', '直观理解',
-`<p><b>大数定律 = 抛硬币抛得越多，正面频率越贴近 0.5。</b>样本均值 $\\bar X_n$ 随 $n$ 增大"挤"向期望 $\\mu$。</p>
-<blockquote><b>中心极限定理 = 大自然偏爱钟形曲线。</b>不管单个变量什么分布（只要独立、方差有限），加在一起 $n$ 个后，$\\dfrac{\\bar X-\\mu}{\\sigma/\\sqrt n}\\xrightarrow{\\ \\text{近似}\\ }N(0,1)$——正态是"随机性叠加"的普适形状。</blockquote>`],
+`<p><b>大数定律 = 重复试验越多，样本平均越稳定。</b>在相应定理的条件下，样本均值 $\\bar X_n$ 随 $n$ 增大依概率趋近总体均值 $\\mu$。</p>
+<blockquote><b>中心极限定理解释许多独立小扰动之和为何常呈钟形。</b>若 $X_1,X_2,\\ldots$ 独立同分布，且具有有限均值 $\\mu$ 和有限正方差 $\\sigma^2$，则标准化的和依分布收敛到标准正态；$n$ 较大时才据此作正态近似。</blockquote>`],
 ['def', '定义与公式',
-`<p><b>① 切比雪夫不等式：</b></p>
+`<p><b>① 切比雪夫不等式：</b>若 $E(X)$ 与有限方差 $D(X)$ 存在，则对任意 $\\varepsilon>0$，</p>
 $$ P(|X-EX|\\ge\\varepsilon)\\le\\frac{D(X)}{\\varepsilon^2} $$
-<p>（证明大数定律的旧工具，也是直接考点。）</p>
-<p><b>② 大数定律（共同骨架）：</b>$\\bar X_n=\\tfrac1n\\sum X_i\\xrightarrow{P}E(X_1)=\\mu$。版本区别在对独立同分布的要求强度：切比雪夫版（独立+方差一致有界）→ 辛钦版（独立同分布即可）→ 伯努利版（频率 → 概率）。</p>
-<p><b>③ 列维—林德伯格 CLT：</b>$X_i$ 独立同分布，$E=\\mu, D=\\sigma^2$，则</p>
-$$ \\frac{\\sum X_i-n\\mu}{\\sqrt n\\,\\sigma}\\ \\xrightarrow{\\text{近似}}\\ N(0,1) $$
+<p>（证明大数定律的常用工具，也是直接考点。）</p>
+<p><b>② 大数定律：</b>切比雪夫型大数定律说，相互独立且方差一致有界时，$\\tfrac1n\\sum_{i=1}^n[X_i-E(X_i)]\\xrightarrow{P}0$；若还有共同均值 $\\mu$，则 $\\bar X_n\\xrightarrow{P}\\mu$。辛钦大数定律假设 $X_i$ 独立同分布且 $E|X_1|<+\\infty$；伯努利大数定律说明频率依概率趋于概率。</p>
+<p><b>③ 列维—林德伯格中心极限定理：</b>若 $X_i$ 独立同分布，$E(X_i)=\\mu$，$D(X_i)=\\sigma^2\\in(0,+\\infty)$，则</p>
+$$ \\frac{\\sum_{i=1}^n X_i-n\\mu}{\\sqrt n\\,\\sigma}\\xrightarrow{d}N(0,1) $$
 <p><b>④ 棣莫弗—拉普拉斯 CLT：</b>二项分布的正态近似版本。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（切比雪夫）$EX=10,\\ DX=2$，估计 $P(8<X<12)$</div>
 $$ P(|X-10|<2)\\ge1-\\frac{2}{4}=0.5 $$
 </div>
-<div class="ex-box"><div class="ex-t">例 2（CLT 估算）某系统 100 个独立部件，寿命均值 200h、标准差 20h，求总寿命超过 20200h 的概率近似值</div>
-<p>$\\sum X_i\\approx N(100\\times200,\\ 100\\times20^2)=N(20000,\\ 200^2)$。</p>
-$$ P\\left(\\sum X_i>20200\\right)=1-\\Phi\\left(\\frac{20200-20000}{200}\\right)=1-\\Phi(1)\\approx0.1587 $$
+<div class="ex-box"><div class="ex-t">例 2（CLT 估算）100 个部件的寿命相互独立且同分布，均值为 200h、标准差为 20h，求寿命总和超过 20200h 的概率近似值</div>
+<p>设寿命为 $X_1,\\ldots,X_{100}$。由中心极限定理，寿命总和近似服从</p>
+$$ \\sum_{i=1}^{100}X_i\\ \\dot\\sim\\ N(100\\times200,\\ 100\\times20^2)=N(20000,\\ 200^2) $$
+$$ P\\left(\\sum_{i=1}^{100}X_i>20200\\right)\\approx1-\\Phi\\left(\\frac{20200-20000}{200}\\right)=1-\\Phi(1)\\approx0.1587 $$
 </div>`],
 ['warn', '易错点',
 `<p>• CLT 标准化时分母是 $\\sqrt n\\,\\sigma$（和的）或 $\\dfrac{\\sigma}{\\sqrt n}$（均值的），两种形态别混。</p>
@@ -172,7 +174,7 @@ $$ P\\left(\\sum X_i>20200\\right)=1-\\Phi\\left(\\frac{20200-20000}{200}\\right
 ],
 quiz: [
 {id:'q1', q:'依概率收敛 $\\bar X_n\\xrightarrow{P}\\mu$ 的含义是？', opts:['每条样本路径都收敛', '对任意 $\\varepsilon$，$P(|\\bar X_n-\\mu|<\\varepsilon)\\to1$', '$\\bar X_n=\\mu$', '方差趋于无穷'], ans:1, exp:'偏差大于 $\\varepsilon$ 的概率趋于零。'},
-{id:'q2', q:'中心极限定理的结论是大量独立同分布随机变量之和近似？', opts:['泊松分布', '正态分布', '均匀分布', '指数分布'], ans:1, exp:'和标准化后近似 $N(0,1)$——正态分布的普适来源。'}
+{id:'q2', q:'若 $X_i$ 独立同分布，$E(X_i)=\\mu$，$D(X_i)=\\sigma^2\\in(0,+\\infty)$，则中心极限定理给出的标准化和 $\\dfrac{\\sum_{i=1}^nX_i-n\\mu}{\\sqrt n\\,\\sigma}$ 依分布收敛到？', opts:['泊松分布', '$N(0,1)$', '均匀分布', '指数分布'], ans:1, exp:'有限均值、有限正方差条件下，标准化和依分布收敛到标准正态分布；只有在 $n$ 较大时才据此作有限样本近似。'}
 ]
 
 },
@@ -189,8 +191,8 @@ secs: [
 `<p><b>① 核心定理（正态总体）：</b>$X\\sim N(\\mu,\\sigma^2)$，则</p>
 $$ \\bar X\\sim N\\left(\\mu,\\frac{\\sigma^2}{n}\\right),\\qquad \\frac{(n-1)S^2}{\\sigma^2}\\sim\\chi^2(n-1) $$
 $$ \\frac{\\bar X-\\mu}{S/\\sqrt n}\\sim t(n-1),\\qquad \\bar X\\ \\text{与}\\ S^2\\ \\text{独立} $$
-<p><b>② 三大分布构造：</b>$\\chi^2(n)=\\sum_{i=1}^nZ_i^2$（$Z_i\\sim N(0,1)$ 独立）；$t(n)=\\dfrac{Z}{\\sqrt{\\chi^2(n)/n}}$；$F(m,n)=\\dfrac{\\chi^2(m)/m}{\\chi^2(n)/n}$。</p>
-<p><b>③ 分位数：</b>$P\\{X>\\chi^2_\\alpha(n)\\}=\\alpha$ 等上侧分位数记法；$t$ 分布对称，$t_{1-\\alpha}(n)=-t_\\alpha(n)$。</p>`],
+<p><b>② 三大分布构造：</b>若 $Z_1,\\ldots,Z_n$ 相互独立且都服从 $N(0,1)$，则 $\\sum_{i=1}^nZ_i^2\\sim\\chi^2(n)$；若 $Z\\sim N(0,1)$、$U\\sim\\chi^2(n)$ 且二者独立，则 $Z/\\sqrt{U/n}\\sim t(n)$；若 $U\\sim\\chi^2(m)$、$V\\sim\\chi^2(n)$ 且二者独立，则 $(U/m)/(V/n)\\sim F(m,n)$。</p>
+<p><b>③ 分位数：</b>若采用上侧分位数记号，则 $P\\{X>\\chi^2_\\alpha(n)\\}=\\alpha$；同样约定下，$t$ 分布关于 0 对称，故 $t_{1-\\alpha}(n)=-t_\\alpha(n)$。使用表格前必须先确认教材采用上侧还是下侧记号。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1 $X\\sim N(1,4)$，$n=16$，求 $\\bar X$ 的分布</div>
 $$ \\bar X\\sim N\\left(1,\\frac{4}{16}\\right)=N\\left(1,\\ 0.25\\right) $$

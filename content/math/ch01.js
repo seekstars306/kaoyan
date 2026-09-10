@@ -15,18 +15,19 @@ secs: [
 <p><b>反函数 = 倒带机。</b>$y=2^x$ 把 3 变成 8；它的反函数 $y=\\log_2 x$ 就把 8 变回 3。图像关于 $y=x$ 对称。</p>`],
 ['def', '定义与公式',
 `<p><b>① 复合函数：</b>$y=f(g(x))$，要求 $g(x)$ 的值域落在 $f$ 的定义域内。对应规则满足 $f(g(x_0))=f(u_0)$，$u_0=g(x_0)$。</p>
-<p><b>② 反函数：</b>若 $y=f(x)$ 单调（一一对应），则存在反函数 $x=f^{-1}(y)$，习惯写作 $y=f^{-1}(x)$。性质：$f(f^{-1}(x))=x$；单调性不变。</p>
+<p><b>② 反函数：</b>若函数 $f:D\\to f(D)$ 是一一对应的（即不同输入产生不同输出），则存在反函数 $f^{-1}:f(D)\\to D$。在区间上，严格单调是保证一一对应的常用充分条件。性质：$f(f^{-1}(y))=y$（$y\\in f(D)$），$f^{-1}(f(x))=x$（$x\\in D$）；若 $f$ 在区间上严格单调，则反函数与它单调方向相同。</p>
 <p><b>③ 基本初等函数五类：</b>幂、指数、对数、三角、反三角。<b>初等函数</b> = 由它们经有限次四则运算与复合得到、能用一个式子表示的函数。考研主要对象就是初等函数。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（求复合）设 $f(x)=\\dfrac{x}{1+x}$，求 $f(f(x))$</div>
 $$ f(f(x)) = \\frac{\\tfrac{x}{1+x}}{1+\\tfrac{x}{1+x}} = \\frac{x}{1+2x} $$
-<p class="muted">把 $f$ 的规则"输入替换"执行两遍即可，注意分母通分要细心。</p></div>
+<p>原函数要求输入不等于 $-1$，所以先排除 $x=-1$；还要让内层输出 $f(x)$ 不等于 $-1$，解得 $x$ 也不能等于 $-1/2$。</p>
+<p class="muted">因此化简式 $f(f(x))=x/(1+2x)$ 的定义域要同时排除 $-1$ 与 $-1/2$。复合函数不能只化简表达式，还必须保留每一层的定义域限制。</p></div>
 <div class="ex-box"><div class="ex-t">例 2（拆复合）把 $y=e^{\\sin^2 x}$ 拆成简单函数</div>
 <p>由外向内：$y=e^u$ ← $u=v^2$ ← $v=\\sin x$。</p>
 <p class="muted">这个"拆"的动作，就是复合函数求导链式法则的准备动作。</p></div>`],
 ['warn', '易错点',
 `<p>• $f(x+1)$ 与 $f(x)+1$ 完全不同：前者是输入变了，后者是输出变了。</p>
-<p>• 反函数存在要求<b>单调（一一对应）</b>：$y=x^2$ 在 $\\mathbb{R}$ 上没有反函数（1 和 -1 挤到同一个输出），但限制在 $[0,+\\infty)$ 上就有。</p>
+<p>• 反函数存在的本质要求是<b>一一对应</b>；在区间上，严格单调可以保证这一点。$y=x^2$ 在 $\\mathbb{R}$ 上不是一一对应的（1 和 -1 得到同一个输出），所以没有反函数；限制在 $[0,+\\infty)$ 上后严格递增，才有反函数。</p>
 <p>• $f^{-1}(x)$ 是反函数，<b>不是</b> $\\dfrac{1}{f(x)}$——记号陷阱。</p>`]
 ],
 quiz: [
@@ -56,7 +57,7 @@ $$ \\lim_{n\\to\\infty} q^n = 0\\ (|q|<1), \\qquad \\lim_{n\\to\\infty}\\frac{1}
 `<div class="ex-box"><div class="ex-t">例 1（抓大头）求 $\\lim\\limits_{n\\to\\infty}\\dfrac{3n^2+2n}{n^2-n+1}$</div>
 <p>分子分母同除最高次项 $n^2$：</p>
 $$ \\lim_{n\\to\\infty}\\frac{3+\\tfrac{2}{n}}{1-\\tfrac{1}{n}+\\tfrac{1}{n^2}} = \\frac{3+0}{1-0+0}=3 $$
-<p class="muted">规律：同次比值=最高次系数比；分子次数低→0，高→$\\infty$。</p></div>
+<p class="muted">规律：分子、分母为多项式且 $n\\to+\\infty$ 时，同次极限等于最高次项系数之比，分子次数较低时极限为 0；分子次数较高时，商的绝对值趋于无穷，究竟是 $+\\infty$ 还是 $-\\infty$ 要由最高次项系数之比及次数差的符号判断。</p></div>
 <div class="ex-box"><div class="ex-t">例 2（无穷大与无穷小混合）求 $\\lim\\limits_{n\\to\\infty}\\dfrac{n}{n^2+1}\\cdot\\left(2+\\dfrac{1}{n}\\right)$</div>
 <p>$\\dfrac{n}{n^2+1}$ 分母次高，趋于 0；$\\left(2+\\tfrac1n\\right)\\to 2$。所以极限 $=0\\times 2 = 0$。</p></div>`],
 ['warn', '易错点',
@@ -67,7 +68,7 @@ $$ \\lim_{n\\to\\infty}\\frac{3+\\tfrac{2}{n}}{1-\\tfrac{1}{n}+\\tfrac{1}{n^2}} 
 quiz: [
 {id:'q1', q:'$\\lim\\limits_{n\\to\\infty}\\dfrac{2n^3-n}{5n^3+n^2}$ 等于？', opts:['0', '$\\infty$', '$\\dfrac{2}{5}$', '$\\dfrac{2}{5}-\\dfrac{1}{5}$'], ans:2, exp:'分子分母同次，极限为最高次项系数之比 $\\tfrac{2}{5}$。'},
 {id:'q2', q:'$\\lim\\limits_{n\\to\\infty}\\left(\\dfrac{1}{2}\\right)^n$ 等于？', opts:['1', '0', '$\\infty$', '不存在'], ans:1, exp:'公比 $|q|=\\tfrac12<1$ 的等比数列极限为 0。'},
-{id:'q3', q:'"对任意 $\\varepsilon>0$，存在 $N$，当 $n>N$ 时 $|a_n-a|<\\varepsilon$"中 $\\varepsilon$ 和 $N$ 的关系是？', opts:['$N$ 由 $\\varepsilon$ 确定，$\\varepsilon$ 越小 $N$ 越大', '$\\varepsilon$ 由 $N$ 确定', '两者无关', '$N$ 必须等于 $\\varepsilon$ 的倒数'], ans:0, exp:'先任意给精度要求 $\\varepsilon$，再回应一个够大的 $N$；要求越苛刻（$\\varepsilon$ 越小），需要的 $N$ 越大。'}
+{id:'q3', q:'“对任意 $\\varepsilon>0$，存在 $N$，当 $n>N$ 时 $|a_n-a|<\\varepsilon$”中 $N$ 与 $\\varepsilon$ 的正确关系是？', opts:['给定每个 $\\varepsilon>0$ 后，可以选取一个依赖于 $\\varepsilon$ 的正整数 $N$', '$\\varepsilon$ 必须由 $N$ 唯一确定', '同一个固定 $N$ 必须适用于所有 $\\varepsilon$', '$N$ 必须等于 $1/\\varepsilon$'], ans:0, exp:'逻辑顺序是先任意给定精度 $\\varepsilon>0$，再找一个足够大的正整数 $N=N(\\varepsilon)$；定义不要求 $N$ 唯一，也不要求 $N=1/\\varepsilon$。'}
 ]
 
 },
@@ -84,7 +85,7 @@ secs: [
 `<p><b>① 描述性定义：</b>$x\\to x_0$ 时 $f(x)$ 无限接近 $A$，记 $\\lim\\limits_{x\\to x_0}f(x)=A$。$x$ 趋近方式是任意的（两侧同时）。</p>
 <p><b>② 单侧极限：</b>$f(x_0^-)=\\lim\\limits_{x\\to x_0^-}f(x)$（左极限）、$f(x_0^+)$（右极限）。</p>
 $$ \\lim_{x\\to x_0}f(x)=A \\iff f(x_0^-) = f(x_0^+) = A $$
-<p><b>③ 四种趋向：</b>$x\\to x_0$、$x\\to\\infty$、$x\\to+\\infty$、$x\\to-\\infty$，各法则与数列极限平行。</p>
+<p><b>③ 常见趋向：</b>$x\\to x_0$、$x\\to+\\infty$、$x\\to-\\infty$。为避免歧义，本教材把未标正负的 $x\\to\\infty$ 约定为 $x\\to+\\infty$；严格书写时优先使用 $+\\infty$ 或 $-\\infty$。</p>
 <p><b>④ 必背单侧行为：</b>$\\lim\\limits_{x\\to+\\infty}e^x=+\\infty,\\ \\lim\\limits_{x\\to-\\infty}e^x=0$；$\\lim\\limits_{x\\to+\\infty}\\arctan x=\\tfrac{\\pi}{2},\\ \\lim\\limits_{x\\to-\\infty}\\arctan x=-\\tfrac{\\pi}{2}$。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1（分段函数）设 $f(x)=\\begin{cases}x+1, & x<0\\\\ x^2, & x\\ge 0\\end{cases}$，讨论 $x\\to 0$ 的极限</div>
@@ -96,12 +97,12 @@ $$ \\lim_{x\\to x_0}f(x)=A \\iff f(x_0^-) = f(x_0^+) = A $$
 ['warn', '易错点',
 `<p>• 极限存在与"该点是否有定义"无关（可去间断点正是"极限在但函数不在"）。</p>
 <p>• 含 $e^{1/x}$、$\\arctan\\tfrac{1}{x}$、$\\dfrac{|x|}{x}$ 的 $x\\to 0$ 问题，<b>必须分左右</b>。</p>
-<p>• 分段函数在分段点处的极限，永远用左右极限分别求。</p>`]
+<p>• 分段函数在分段点处求双侧极限时，应分别计算左、右极限并比较；若只求某一侧极限，则只使用对应一侧的表达式。</p>`]
 ],
 quiz: [
 {id:'q1', q:'$\\lim\\limits_{x\\to 0^-}e^{1/x}$ 等于？', opts:['$+\\infty$', '1', '0', '不存在'], ans:2, exp:'$x\\to 0^-$ 时 $\\tfrac1x\\to-\\infty$，$e^{-\\infty}\\to 0$。'},
 {id:'q2', q:'$f(x)=\\begin{cases}\\dfrac{\\sin x}{x}, & x\\neq 0\\\\ 0, & x=0\\end{cases}$，则 $\\lim\\limits_{x\\to 0}f(x)$ 等于？', opts:['0', '1', '不存在', '$-1$'], ans:1, exp:'极限只看 $x\\neq0$ 处的趋近行为：$\\lim\\tfrac{\\sin x}{x}=1$。$x=0$ 处函数值为 0 不影响极限（这正是"可去间断"的素材）。'},
-{id:'q3', q:'$\\lim\\limits_{x\\to \\infty}\\arctan x$ 的情况是？', opts:['等于 $\\dfrac{\\pi}{2}$', '等于 $-\\dfrac{\\pi}{2}$', '不存在（左右趋势不同）', '等于 0'], ans:2, exp:'$x\\to+\\infty$ 时 $\\to\\tfrac{\\pi}{2}$，$x\\to-\\infty$ 时 $\\to-\\tfrac{\\pi}{2}$，两侧不同，故 $x\\to\\infty$ 极限不存在。'}
+{id:'q3', q:'$\\lim\\limits_{x\\to \\infty}\\arctan x$ 等于？', opts:['$\\dfrac{\\pi}{2}$', '$-\\dfrac{\\pi}{2}$', '不存在', '0'], ans:0, exp:'按通常记号，$x\\to\\infty$ 表示 $x\\to+\\infty$，因此 $\\arctan x\\to\\tfrac{\\pi}{2}$。只有题目要求比较 $x\\to+\\infty$ 与 $x\\to-\\infty$ 时，才分别讨论两个方向。'}
 ]
 
 },
@@ -116,8 +117,8 @@ secs: [
 <p><b>无穷大不是"很大的数"，而是"绝对值无限增大的变量"。</b>两者关系：倒数互化——非零无穷小的倒数是无穷大。</p>
 <blockquote>形象记忆：无穷小是"越来越挤向 0 的点"，无穷大是"越跑越远的点"。$\\dfrac{1}{x}$ 当 $x\\to\\infty$ 是无穷小，$x$ 本身是无穷大，两者互为倒数。</blockquote>`],
 ['def', '定义与公式',
-`<p><b>① 无穷小：</b>$\\lim f(x)=0$（在某一趋向下）。<b>无穷大：</b>$\\lim f(x)=\\infty$。</p>
-<p><b>② 关系：</b>同一趋向下，$f$ 为无穷大 $\\iff \\tfrac1f$ 为无穷小（$f\\neq0$）。</p>
+`<p><b>① 无穷小：</b>在某一趋向下 $f(x)\\to0$。<b>无穷大：</b>若 $|f(x)|\\to+\\infty$，则称 $f$ 为无穷大量；若函数最终为正或为负，还可分别写成 $f(x)\\to+\\infty$ 或 $f(x)\\to-\\infty$。</p>
+<p><b>② 关系：</b>同一趋向下，若 $|f|\\to+\\infty$，则 $1/f\\to0$；反过来，若 $f\\to0$ 且在某个去心邻域内不为零，则 $|1/f|\\to+\\infty$。若要断言带符号的 $+\\infty$ 或 $-\\infty$，还必须知道 $f$ 在邻域内的符号。</p>
 <p><b>③ 性质：</b>有限个无穷小之和/积仍是无穷小；<b>有界函数 × 无穷小 = 无穷小</b>。</p>
 <p><b>④ 极限与无穷小的关系定理：</b>$\\lim f(x)=A \\iff f(x)=A+\\alpha$，其中 $\\alpha$ 是无穷小。这个"剥壳"写法在证明题里常用。</p>
 <p><b>⑤ 阶的比较</b>（设 $\\alpha,\\beta$ 都是无穷小）：</p>
@@ -129,12 +130,12 @@ $$ \\lim\\frac{\\beta}{\\alpha}=0: \\beta \\text{ 是高阶无穷小 } o(\\alpha
 <div class="ex-box"><div class="ex-t">例 2（比较阶）$x\\to 0$ 时，比较 $x^2$ 与 $1-\\cos x$</div>
 <p>$\\lim\\limits_{x\\to0}\\dfrac{1-\\cos x}{x^2}=\\dfrac12 \\neq 0$ 且有限，所以两者是<b>同阶</b>无穷小（其实等价于 $\\tfrac{x^2}{2}$）。</p></div>`],
 ['warn', '易错点',
-`<p>• 无穷大 + 无穷大 ≠ 无穷大（可能相消为 0），无穷小 − 无穷小未必是无穷小——都要具体算。</p>
+`<p>• 两个都趋于 $+\\infty$ 的量相加仍趋于 $+\\infty$；两个无穷小的和或差仍是无穷小。真正不能直接运算的是 $\\infty-\\infty$、$0\\cdot\\infty$ 等未定式，必须先变形再求极限。</p>
 <p>• "很小的常数"不是无穷小；唯一既是常数又是无穷小的只有 0。</p>
 <p>• 有限个无穷小之积是无穷小，<b>无穷多个</b>无穷小之积没有此结论。</p>`]
 ],
 quiz: [
-{id:'q1', q:'$x\\to 0$ 时，下列哪个<b>不是</b>无穷小？', opts:['$x^2$', '$1-\\cos x$', '$\\sin x$', '$\\cot x$'], ans:3, exp:'$\\cot x=\\tfrac{\\cos x}{\\sin x}\\to\\infty$（$x\\to0$），是无穷大不是无穷小。'},
+{id:'q1', q:'$x\\to 0$ 时，下列哪个<b>不是</b>无穷小？', opts:['$x^2$', '$1-\\cos x$', '$\\sin x$', '$\\cot x$'], ans:3, exp:'$x\\to0$ 时 $|\\cot x|\\to+\\infty$，所以它不是无穷小。更精确地说，右极限为 $+\\infty$、左极限为 $-\\infty$，因此两侧的扩展实数极限并不存在。'},
 {id:'q2', q:'$\\lim\\limits_{x\\to\\infty}\\dfrac{1+\\cos x}{x^2}$ 等于？', opts:['1', '不存在（振荡）', '0', '$\\infty$'], ans:2, exp:'$\\tfrac1{x^2}\\to 0$ 无穷小 × 有界量 $(1+\\cos x)$ = 无穷小，极限为 0。'},
 {id:'q3', q:'设 $x\\to 0$，$\\alpha=x^3$，$\\beta=\\sin^2 x$，则？', opts:['$\\beta$ 是 $\\alpha$ 的高阶无穷小', '$\\alpha$ 与 $\\beta$ 同阶', '$\\alpha$ 是 $\\beta$ 的高阶无穷小', '两者等价'], ans:2, exp:'$\\lim\\tfrac{x^3}{\\sin^2 x}=\\lim\\tfrac{x^3}{x^2}=0$，$x^3$ 比 $x^2$ 阶数高，趋于 0 更快。'}
 ]
@@ -204,7 +205,7 @@ $$ 1-\\cos x\\sim\\frac{x^2}{2},\\qquad (1+x)^a-1\\sim ax,\\qquad a^x-1\\sim x\\
 <p>若都换成 $x$，分子变 $x-x=0$，错！正确做法：$\\tan x-\\sin x=\\tan x(1-\\cos x)\\sim x\\cdot\\tfrac{x^2}{2}=\\tfrac{x^3}{2}$，极限 $=\\tfrac12$。</p>
 <p class="muted">主部相消后，"次主部"才是真正的主角——等价替换的精髓是比到"最后站着不消的那一项"。</p></div>`],
 ['warn', '易错点',
-`<p>• 等价替换<b>只对因子</b>（乘除）绝对安全；加减中替换要验证不消主部，否则用泰勒（3-3 节）。</p>
+`<p>• 等价无穷小可替换乘积或商中的相应因子；和、差中不能直接替换，必须先变形或采用后续将学习的高阶展开等方法。</p>
 <p>• $\\ln(1+x)\\sim x$ 要求整体是 $\\ln(1+\\square)$ 且 $\\square\\to0$，是 $\\ln(1+2x^2)$ 就等价 $2x^2$，别漏系数。</p>
 <p>• 比较阶数时"谁快谁慢"用比值定阶，不要凭直觉喊"高阶"。</p>`]
 ],
@@ -238,7 +239,7 @@ secs: [
 `<div class="ex-box"><div class="ex-t">例 1（找间断点）讨论 $f(x)=\\dfrac{x}{\\sin x}$ 的间断点</div>
 <p>分母为零处间断：$x=k\\pi$（$k$ 为整数）。</p>
 <p>• $x=0$：$\\lim\\limits_{x\\to0}\\dfrac{x}{\\sin x}=1$，极限存在（函数无定义）→ <b>可去间断点</b>。</p>
-<p>• $x=k\\pi\\ (k\\neq0)$：$\\lim\\limits_{x\\to k\\pi}\\dfrac{x}{\\sin x}=\\infty$ → <b>无穷间断点</b>（第二类）。</p></div>
+<p>• $x=k\\pi\\ (k\\neq0)$：令 $x=k\\pi+h$，则 $\\sin x=(-1)^k\\sin h$，所以 $\\dfrac{x}{\\sin x}\\sim\\dfrac{k\\pi}{(-1)^k h}$。当 $h\\to0^+$ 与 $h\\to0^-$ 时符号相反，两个单侧极限分别为 $+\\infty$ 和 $-\\infty$（次序由 $k$ 的符号与奇偶决定），故双侧极限不存在，$x=k\\pi$ 是<b>无穷间断点</b>（第二类）。</p></div>
 <div class="ex-box"><div class="ex-t">例 2（含参连续）设 $f(x)=\\begin{cases}e^x, & x<0\\\\ a+x, & x\\ge0\\end{cases}$ 在 $x=0$ 连续，求 $a$</div>
 <p>左极限 $=e^0=1$，右极限 $=a$，函数值 $=a$。连续要求 $a=1$。</p></div>`],
 ['warn', '易错点',
@@ -271,9 +272,10 @@ secs: [
 <p>令 $f(x)=x^3-4x^2+1$，它在 $[0,1]$ 连续。$f(0)=1>0$，$f(1)=1-4+1=-2<0$。</p>
 <p>由零点定理，存在 $\\xi\\in(0,1)$ 使 $f(\\xi)=0$。∎</p>
 <p class="muted">套路三步：构造函数 → 验证连续与端点异号 → 引用零点定理。</p></div>
-<div class="ex-box"><div class="ex-t">例 2（介值）$f$ 在 $[0,2]$ 连续，$f(0)=f(2)=1$，证明存在 $\\xi$ 使 $f(\\xi)=\\tfrac12$</div>
-<p>$\\tfrac12$ 介于 1 与 1 之间？不能直接用介值定理（最大最小值未知）。构造 $g(x)=f(x)-\\tfrac12$：$g(0)=g(2)=\\tfrac12>0$……此时需更多条件——本题完整版通常给 $f(1)=0$ 等。这里体会：介值定理必须知道"值 $\\mu$ 落在两函数值之间"才能用。</p>
-<p class="muted">真题常配 $f(0)f(2)<0$ 或给出第三个点的值，让端点异号。</p></div>`],
+<div class="ex-box"><div class="ex-t">例 2（介值定理）设 $f$ 在 $[0,2]$ 上连续，且 $f(0)=1,\\ f(2)=-1$，证明存在 $\\xi\\in(0,2)$ 使 $f(\\xi)=\\tfrac12$</div>
+<p>数值 $\\tfrac12$ 位于 $f(0)=1$ 与 $f(2)=-1$ 之间。由介值定理，存在 $\\xi\\in[0,2]$ 使 $f(\\xi)=\\tfrac12$。</p>
+<p>又因端点函数值分别是 1 和 $-1$，都不等于 $\\tfrac12$，所以该点不可能是端点，故 $\\xi\\in(0,2)$。</p>
+<p class="muted">也可令 $g(x)=f(x)-\\tfrac12$：$g(0)=\\tfrac12>0$，$g(2)=-\\tfrac32<0$，再用零点定理。</p></div>`],
 ['warn', '易错点',
 `<p>• 零点定理给的是<b>存在性</b>，不给出根的位置和个数；"有且仅有一个"需要单调性加成。</p>
 <p>• 开区间结论失效：$f(x)=\\tfrac1x$ 在 $(0,1)$ 连续但无界——"闭区间"不能省。</p>

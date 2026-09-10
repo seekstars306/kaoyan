@@ -95,7 +95,7 @@ secs: [
 'Although many people believe that working from home increases productivity, a recent study suggests that the picture is more complicated: while some employees indeed perform better, others struggle with isolation and poor time management.'
 ],
 ['warn', '易错点',
-`<p>• 时间不够时保主干弃修饰——主干错译掉档最狠。</p>
+`<p>• 时间紧张时先确保每句主干和关键逻辑关系准确，再尽量补全修饰信息；不能把“从简处理”理解为任意漏译，因为重要限定语同样可能是采分点。</p>
 <p>• 演练后不复盘等于白练：AI 指出的问题要回 6-1、6-2 找对应招式。</p>`]
 ],
 quiz: [

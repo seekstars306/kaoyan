@@ -10,18 +10,20 @@ secs: [
 ['why', '为什么学这一节',
 `<p>排序章的开山两式。直接插入是"打牌理牌"，希尔是它的分组加速版。考法：手写一两趟排序结果、复杂度与稳定性归类——排序章的选择题全是"对号入座"。</p>`],
 ['think', '直观理解',
-`<p><b>直接插入：</b>把第 i 个元素插到前面已有序的部分里——像摸牌插入手牌。最好情况（已有序）只比较不移动 O(n)，最坏（逆序）O(n²)，平均 O(n²)。<b>稳定。</b></p>
-<blockquote><b>希尔排序：</b>按增量 d 分组做插入排序，d 逐步缩小到 1——先让远距离元素"大致就位"，最后一趟基本有序、插入飞快。<b>复杂度依赖增量序列，约 O(n^1.3)，不稳定</b>（同值可能跨组交换失序）。</blockquote>`],
+`<p><b>直接插入：</b>把第 i 个元素插到前面已有序的部分里——像摸牌插入手牌。最好情况（已有序）O(n)，平均和最坏为 O(n²)，且<b>稳定</b>。</p>
+<blockquote><b>希尔排序：</b>按增量 d 分组做插入排序，逐步缩小 d，最后必须取 1。它先让远距离元素大致就位，但同值元素可能跨组改变相对次序，所以<b>不稳定</b>。时间复杂度取决于增量序列，不能脱离具体增量统一写成 $O(n^{1.3})$；采用简单折半增量时，最坏情况仍可达 O(n²)。</blockquote>`],
 ['def', '手算规则',
-`<p><b>直接插入第 i 趟：</b>前 i-1 个已有序，将第 i 个依次与前面比较、后移腾位、插入。写出第 1~2 趟结果是常考动作。</p>
+`<p><b>直接插入第 i 趟：</b>前 i-1 个已有序，将第 i 个依次与前面比较、后移腾位、插入。以下代码用 a[0] 作哨兵，有效元素放在 a[1..n]，数组必须至少有 n+1 个单元。</p>
 <pre class="code">void InsertSort(int a[], int n) {
-    for (int i = 2; i &lt;= n; i++)
+    for (int i = 2; i &lt;= n; i++) {
         if (a[i] &lt; a[i-1]) {
+            int j;
             a[0] = a[i];                  /* 哨兵 */
-            for (int j = i-1; a[j] &gt; a[0]; j--)
+            for (j = i-1; a[j] &gt; a[0]; j--)
                 a[j+1] = a[j];            /* 后移 */
             a[j+1] = a[0];
         }
+    }
 }</pre>
 <p><b>希尔一趟（d=4）：</b>对 1,5,9… 一组、2,6,10… 一组分别插入排序。</p>
 <p><b>适用：</b>直接插入适合基本有序或 n 小；希尔适合大规模初排。</p>`],
@@ -66,7 +68,7 @@ secs: [
 <p><b>优化：</b>枢轴取三者取中、小规模切换插入排序、随机枢轴——防最坏情况。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1 一趟划分：{49, 38, 65, 97, 76, 13, 27} 以 49 为枢轴</div>
-<p>high 找小：27→a[low]；low 找大：65→a[high]；high 找小：13→a[low]；low 找大到与 high 相遇。结果：**{27, 38, 13, <b>49</b>, 76, 97, 65}**，49 归位于第 4 位。</p></div>
+<p>high 找到 27，放入左侧空位；low 找到 65，放入右侧空位；high 再找到 13，放入左侧空位；随后 low 与 high 相遇，最后把枢轴 49 放入相遇位置。结果为 <b>{27, 38, 13, 49, 76, 97, 65}</b>，49 归位于第 4 位。</p></div>
 <div class="ex-box"><div class="ex-t">例 2（复杂度场景）快排何时最坏？</div>
 <p>序列<b>基本有序（正序或逆序）</b>且枢轴取端点：每趟只划分出 1 与 n-1，递归深达 n 层，O(n²)、递归栈 O(n)。</p></div>`],
 ['warn', '易错点',
@@ -158,7 +160,7 @@ secs: [
 <table style="width:100%;border-collapse:collapse;font-size:12.5px">
 <tr style="background:#f1f4f9"><th style="padding:4px;border:1px solid #e3e8f0">算法</th><th style="padding:4px;border:1px solid #e3e8f0">最好</th><th style="padding:4px;border:1px solid #e3e8f0">平均</th><th style="padding:4px;border:1px solid #e3e8f0">最坏</th><th style="padding:4px;border:1px solid #e3e8f0">空间</th><th style="padding:4px;border:1px solid #e3e8f0">稳定</th><th style="padding:4px;border:1px solid #e3e8f0">备注</th></tr>
 <tr><td style="padding:4px;border:1px solid #e3e8f0">直接插入</td><td style="padding:4px;border:1px solid #e3e8f0">O(n)</td><td style="padding:4px;border:1px solid #e3e8f0">O(n²)</td><td style="padding:4px;border:1px solid #e3e8f0">O(n²)</td><td style="padding:4px;border:1px solid #e3e8f0">O(1)</td><td style="padding:4px;border:1px solid #e3e8f0">✓</td><td style="padding:4px;border:1px solid #e3e8f0">基本有序最爽</td></tr>
-<tr><td style="padding:4px;border:1px solid #e3e8f0">希尔</td><td style="padding:4px;border:1px solid #e3e8f0">—</td><td style="padding:4px;border:1px solid #e3e8f0">≈O(n^1.3)</td><td style="padding:4px;border:1px solid #e3e8f0">—</td><td style="padding:4px;border:1px solid #e3e8f0">O(1)</td><td style="padding:4px;border:1px solid #e3e8f0">✗</td><td style="padding:4px;border:1px solid #e3e8f0">增量序列决定</td></tr>
+<tr><td style="padding:4px;border:1px solid #e3e8f0">希尔</td><td style="padding:4px;border:1px solid #e3e8f0">依增量而定</td><td style="padding:4px;border:1px solid #e3e8f0">依增量而定</td><td style="padding:4px;border:1px solid #e3e8f0">可达 O(n²)</td><td style="padding:4px;border:1px solid #e3e8f0">O(1)</td><td style="padding:4px;border:1px solid #e3e8f0">✗</td><td style="padding:4px;border:1px solid #e3e8f0">不能脱离增量给统一界</td></tr>
 <tr><td style="padding:4px;border:1px solid #e3e8f0">冒泡</td><td style="padding:4px;border:1px solid #e3e8f0">O(n)</td><td style="padding:4px;border:1px solid #e3e8f0">O(n²)</td><td style="padding:4px;border:1px solid #e3e8f0">O(n²)</td><td style="padding:4px;border:1px solid #e3e8f0">O(1)</td><td style="padding:4px;border:1px solid #e3e8f0">✓</td><td style="padding:4px;border:1px solid #e3e8f0">有序可提前停</td></tr>
 <tr><td style="padding:4px;border:1px solid #e3e8f0">快排</td><td style="padding:4px;border:1px solid #e3e8f0">O(n log n)</td><td style="padding:4px;border:1px solid #e3e8f0">O(n log n)</td><td style="padding:4px;border:1px solid #e3e8f0">O(n²)</td><td style="padding:4px;border:1px solid #e3e8f0">O(log n)</td><td style="padding:4px;border:1px solid #e3e8f0">✗</td><td style="padding:4px;border:1px solid #e3e8f0">平均最快；有序最坏</td></tr>
 <tr><td style="padding:4px;border:1px solid #e3e8f0">简单选择</td><td style="padding:4px;border:1px solid #e3e8f0">O(n²)</td><td style="padding:4px;border:1px solid #e3e8f0">O(n²)</td><td style="padding:4px;border:1px solid #e3e8f0">O(n²)</td><td style="padding:4px;border:1px solid #e3e8f0">O(1)</td><td style="padding:4px;border:1px solid #e3e8f0">✗</td><td style="padding:4px;border:1px solid #e3e8f0">比较次数固定</td></tr>
@@ -172,7 +174,7 @@ secs: [
 <p>• 比较次数与初始序列<b>无关</b>：简单选择、基数（不比较）；堆/归并趟数固定。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例（综合）要求：10⁶ 个整数、取最小的 10 个、内存紧张——选？</div>
-<p><b>堆排序</b>（建 10 元素小根堆流式扫描，O(n log k) 且 O(k) 空间）。</p>
+<p>维护一个容量为 10 的<b>大根堆</b>：先放入 10 个元素；此后若新元素小于堆顶，就用它替换当前 10 个候选中的最大值并向下调整。扫描结束后，堆中就是最小的 10 个元素，时间 O(n log k)、额外空间 O(k)。若误用小根堆，堆顶是候选中的最小值，无法 O(1) 判断并淘汰当前最大候选。</p>
 <p class="muted">"场景 → 算法"是最贴近真题的练习方式，每条场景都过一遍。</p></div>`],
 ['warn', '易错点',
 `<p>• "归位元素"性质是判断"序列是否为一趟 XX 排序结果"的钥匙：插入与归并排除法最好用。</p>

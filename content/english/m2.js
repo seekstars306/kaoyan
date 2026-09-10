@@ -128,7 +128,7 @@ secs: [
 <b>② 主语从句：</b><b>What he said</b> is true. / It is clear <b>that he is lying</b>.（形式主语 it）<br>
 <b>③ 表语从句：</b>The problem is <b>that we lack time</b>.<br>
 <b>④ 同位语从句：</b>The fact <b>that the earth is round</b> is known to all.</p>
-<p><b>语序铁律：从句用陈述语序</b>（不用疑问倒装）：</p>
+<p><b>语序铁律：间接疑问中的从句通常用陈述语序</b>（不用直接疑问句的助动词倒装）：</p>
 <p>✅ I don\'t know <b>where he lives</b>.　❌ I don\'t know where does he live.</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1 that vs what</div>
@@ -203,7 +203,7 @@ secs: [
 ⑦ 方式：as（正如）, as if/as though（仿佛）<br>
 ⑧ 地点：where, wherever<br>
 ⑨ 比较：than, as…as</p>
-<p><b>铁律：主将从现</b>——时间/条件从句用一般现在时代替将来时：If it <b>rains</b> tomorrow, we will stay home.</p>`],
+<p><b>主将从现：</b>在谈论将来且主句使用将来时或祈使句时，时间/条件状语从句通常用一般现在时表示将来：If it <b>rains</b> tomorrow, we will stay home. 这不是说所有时间/条件从句都只能用一般现在时，叙述过去或表达其他时间关系时仍应选择相应时态。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例 1 although 与 but 不可共存</div>
 <p>❌ Although he is rich, <b>but</b> he is not happy.<br>✅ Although he is rich, he is not happy. / He is rich, <b>but</b> not happy.</p>
@@ -229,9 +229,9 @@ secs: [
 ['why', '为什么学这一节',
 `<p>"一个句子一个谓语"的铁律，让多余的动作必须"降级"为非谓语：doing（主动进行）、done（被动完成）、to do（目的将来）。它是长难句压缩信息的核心机制，语法填空与写作的必考点。</p>`],
 ['think', '直观理解',
-`<p><b>看这句的压缩过程：</b></p>
-<blockquote>Because he <b>heard</b> the news, he <b>jumped</b>.（两个谓语，要连词）<br>↓ 降级 heard → <b>Hearing</b> the news, he jumped.（听到这个消息，他跳了起来）<br>三个形态分工：<b>to do</b> 表目的将来（去干活），<b>doing</b> 表主动伴随（正在干），<b>done</b> 表被动完成（被干）。</blockquote>
-<p><b>判断口诀：</b>先看非谓语与逻辑主语的关系——主动关系用 doing，被动用 done，表目的用 to do。</p>`],
+`<p><b>先判断非谓语在句中的功能，再看它与逻辑主语的关系和时间含义。</b></p>
+<blockquote>Because he <b>heard</b> the news, he <b>jumped</b>.（两个分句各有谓语，由 because 连接）<br>↓ 可压缩为 <b>Hearing</b> the news, he jumped.（he 是 hear 的施事；这里 hearing 表示伴随或先后紧接的主动动作）<br><b>to do</b> 常表示目的，也可作主语、宾语、定语或补语；<b>doing</b> 可作动名词或现在分词，通常含主动意义；<b>done</b> 是过去分词，常含被动或完成意义。它们不是简单的“将来/正在/完成”一一对应，具体含义必须结合句法和语境。</blockquote>
+<p><b>基本判断顺序：</b>先确定句中需要哪种成分，再检查非谓语的逻辑主语，最后判断主动、被动及先后关系。</p>`],
 ['def', '三大非谓语要点',
 `<p><b>① 不定式 to do：</b>表目的/将来。<span class="speak-btn" data-speak="He got up early to catch the train.">He got up early <b>to catch</b> the train.</span>（为了赶火车）<br>
 <b>② 动名词 doing：</b>当名词用（主语宾语）；表主动进行。<b>Swimming</b> is good for health.<br>
@@ -270,7 +270,7 @@ secs: [
 <b>分隔 = 主谓之间插长修饰：</b>The man (who lives next door) is a doctor.——主语 The man 与谓语 is 被从句隔开，读到 is 别懵。</blockquote>`],
 ['def', '四大结构触发条件',
 `<p><b>① 部分倒装（助动词提前）触发词：</b>否定副词开头（Never, Seldom, Hardly, Not only, By no means）；Only + 状语开头（Only then did I realize…）；so/neither/nor 开头（So do I. 我也是）；So + adj 开头（So loud was the noise that…）。</p>
-<p><b>② 完全倒装（整个谓语提前）：</b>地点副词开头（Here comes the bus. / In front of the house stands a tree.）。</p>
+<p><b>② 完全倒装（整个谓语提前）：</b>here/there 或地点短语置于句首时，在特定语体和结构中可用完全倒装，如 Here comes the bus. / In front of the house stands a tree. 若主语是代词，通常不倒装：Here he comes.</p>
 <p><b>③ 强调句判定法：</b>去掉 It is…that 后句子仍完整 → 强调句；不完整 → 可能是主语从句。</p>
 <p><b>④ 分隔识别：</b>谓语前后找"成对结构"，中间的插入语（两个逗号/破折号之间）先跳读。</p>`],
 ['ex', '例题精讲',
