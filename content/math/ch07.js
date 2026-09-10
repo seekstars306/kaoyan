@@ -143,7 +143,7 @@ $$ \\iint_D x^2 d\\sigma=\\frac12\\iint_D(x^2+y^2)d\\sigma=\\frac12\\int_0^{2\\p
 quiz: [
 {id:'q1', q:'交换 $\\int_0^1 dy\\int_0^{y}f\\,dx$ 的次序得？', opts:['$\\int_0^1 dx\\int_x^{1}f\\,dy$', '$\\int_0^1 dx\\int_0^{x}f\\,dy$', '$\\int_0^1 dy\\int_0^{x}f\\,dx$', '$\\int_0^1 dx\\int_0^{1}f\\,dy$'], ans:0, exp:'区域为三角形 $0\\le x\\le y\\le1$；换 X 型：$x$ 从 0 到 1，$y$ 从 $x$ 到 1。'},
 {id:'q2', q:'$D$ 关于 $y$ 轴对称，$f(x,y)=x^3y$，则 $\\iint_D f\\,d\\sigma$ 等于？', opts:['$2\\iint_{D_{\\mathrm{right}}}f\\,d\\sigma$', '0', '不适用对称性', '$\\iint_D y\\,d\\sigma$'], ans:1, exp:'$x^3y$ 关于 $x$ 是奇函数（$(-x)^3y=-x^3y$），区域对称 → 积分为 0。'},
-{id:'q3', q:'利用轮换对称，$\\iint_D (3x^2-2y^2)d\\sigma$（$D$ 为圆 $x^2+y^2\\le R^2$）可化为？', opts:['$\\iint_D x^2 d\\sigma$', '$\\dfrac{1}{2}\\iint_D (x^2+y^2)d\\sigma$', '$\\iint_D (x^2+y^2)d\\sigma$', '$0$'], ans:1, exp:'$\\iint x^2=\\iint y^2=\\tfrac12\\iint(x^2+y^2)$，故原式 $=3\\cdot\\tfrac12-2\\cdot\\tfrac12=\\tfrac12$ 倍的 $\\iint(x^2+y^2)d\\sigma$。'}
+{id:'q3', q:'利用轮换对称，$\\iint_D (3x^2-2y^2)d\\sigma$（$D$ 为圆 $x^2+y^2\\le R^2$）可化为？', opts:['$-\\dfrac{1}{2}\\iint_D (x^2+y^2)d\\sigma$', '$\\dfrac{1}{2}\\iint_D (x^2+y^2)d\\sigma$', '$\\iint_D (x^2+y^2)d\\sigma$', '$0$'], ans:1, exp:'$\\iint x^2=\\iint y^2=\\tfrac12\\iint(x^2+y^2)$，故原式 $=3\\cdot\\tfrac12-2\\cdot\\tfrac12=\\tfrac12$ 倍的 $\\iint(x^2+y^2)d\\sigma$。'}
 ]
 
 }

@@ -384,6 +384,12 @@ function runRegressions() {
     '下一步期望收到序号 501 起的字节',
     '第 4、5 轮后依次为 <b>9、10</b> MSS'
   ], 'tcp-ack-cwnd');
+  /* 2026-09 复查:以下五项曾出现“多个选项都正确”或“选项等价”,现固定为唯一答案 */
+  expectContains('content/math/ch02.js', ["'$3x^2\\\\ln x+x^3$'"], 'derivative-option-unique');
+  expectContains('content/math/ch06.js', ["'$\\\\dfrac{y}{x}$'"], 'implicit-derivative-option-unique');
+  expectContains('content/math/ch07.js', ['$-\\\\dfrac{1}{2}\\\\iint_D (x^2+y^2)d\\\\sigma$'], 'rotation-symmetry-option-unique');
+  expectContains('content/english/m0.js', ["'pen / pan'"], 'long-short-vowel-distractor');
+  expectContains('content/english/m2.js', ["opts:['which', 'what', 'when', 'where'], ans:2"], 'relative-adverb-unique');
 }
 
 function main() {

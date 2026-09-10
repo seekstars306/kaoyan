@@ -140,7 +140,7 @@ $$ z_x=-\\frac{F_x}{F_z}=\\frac{yz}{e^z-xy} $$
 ],
 quiz: [
 {id:'q1', q:'$z=u e^{v}$，$u=x^2$，$v=x+y$，则 $\\dfrac{\\partial z}{\\partial x}$ 含两条路径的项数为？', opts:['0', '1', '2', '3'], ans:2, exp:'$z$ 经 $u$ 到 $x$、经 $v$ 到 $x$，两条路径，$z_x=z_u\\cdot2x+z_v\\cdot1$。'},
-{id:'q2', q:'在圆 $F(x,y)=x^2+y^2-1=0$ 上且 $y\\neq0$ 的点，由该方程局部确定的 $y(x)$ 满足 $\\dfrac{dy}{dx}=$？', opts:['$\\dfrac{x}{y}$', '$-\\dfrac{x}{y}$', '$-2x$', '$\\dfrac{2x}{2y}$'], ans:1, exp:'$F_x=2x$，$F_y=2y\\neq0$，所以 $y\'=-\\tfrac{F_x}{F_y}=-\\tfrac xy$。在 $y=0$ 的左右端点，不能把圆局部写成单值的 $y(x)$ 并套这个公式。'},
+{id:'q2', q:'在圆 $F(x,y)=x^2+y^2-1=0$ 上且 $y\\neq0$ 的点，由该方程局部确定的 $y(x)$ 满足 $\\dfrac{dy}{dx}=$？', opts:['$\\dfrac{x}{y}$', '$-\\dfrac{x}{y}$', '$-2x$', '$\\dfrac{y}{x}$'], ans:1, exp:'$F_x=2x$，$F_y=2y\\neq0$，所以 $y\'=-\\tfrac{F_x}{F_y}=-\\tfrac xy$。在 $y=0$ 的左右端点，不能把圆局部写成单值的 $y(x)$ 并套这个公式。'},
 {id:'q3', q:'设 $z=f(xy, \\tfrac{x}{y})$，$f$ 有连续偏导，则 $\\dfrac{\\partial z}{\\partial x}$ 等于？', opts:['$y f_1\' + \\tfrac1y f_2\'$', '$x f_1\'$', '$f_1\'+f_2\'$', '$y f_1\'-\\tfrac1y f_2\'$'], ans:0, exp:'$u=xy$ 对 $x$ 导 $y$；$v=\\tfrac xy$ 对 $x$ 导 $\\tfrac1y$。记号 $f_1\'$ 表 $f$ 对第一个位置变量求偏导。'}
 ]
 

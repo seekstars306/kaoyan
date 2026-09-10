@@ -178,7 +178,7 @@ that = 连接词 + 在从句中充当 bought 的宾语（我昨天买的那本�
 <p>• 先行词可能是"短语或句子"而非最近的名词，拆解时认准逻辑先行词。</p>`]
 ],
 quiz: [
-{id:'q1', q:'I still remember the day ___ we first met.', opts:['which', 'that', 'when', 'where'], ans:2, exp:'met 不及物用法（见面），从句完整，先行词是"时间" → when。'},
+{id:'q1', q:'I still remember the day ___ we first met.', opts:['which', 'what', 'when', 'where'], ans:2, exp:'met 不及物用法（见面），从句完整，先行词是"时间" → when。'},
 {id:'q2', q:'All ___ glitters is not gold.', opts:['which', 'that', 'what', 'who'], ans:1, exp:'先行词 all → 只用 that（发光的未必都是金子）。'},
 {id:'q3', q:'He failed again, ___ was expected.', opts:['that', 'which', 'it', 'what'], ans:1, exp:'非限制性定语从句，which 指代前面整件事。'}
 ]

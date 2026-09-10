@@ -71,7 +71,7 @@ secs: [
 ],
 quiz: [
 {id:'q1', q:'apple /ˈæpl/ 中的元音是？', opts:['/e/', '/æ/', '/aɪ/', '/ɑː/'], ans:1, exp:'/æ/ 短元音，口大而扁，像被踩到脚的惊叫前半段。'},
-{id:'q2', q:'下列哪组是"长音 vs 短音"的对立？', opts:['cat / cut', 'ship 与 sheep', 'dog / door', 'see / sea'], ans:1, exp:'ship /ʃɪp/ 与 sheep /ʃiːp/：短 /ɪ/ 对长 /iː/。see 和 sea 发音完全相同。'}
+{id:'q2', q:'下列哪组是"长音 vs 短音"的对立？', opts:['cat / cut', 'ship / sheep', 'pen / pan', 'see / sea'], ans:1, exp:'ship /ʃɪp/ 与 sheep /ʃiːp/：短 /ɪ/ 对长 /iː/。cat/cut 与 pen/pan 都是两短音对立；see 和 sea 发音完全相同。'}
 ]
 
 },

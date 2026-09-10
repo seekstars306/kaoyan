@@ -75,7 +75,7 @@ $$ y\'=x^{\\sin x}\\left(\\cos x\\ln x+\\frac{\\sin x}{x}\\right) $$
 <p>• 积的导数 ≠ 导的积：$(uv)\'\\neq u\'v\'$。</p>`]
 ],
 quiz: [
-{id:'q1', q:'$y=x^3\\ln x$ 的导数是？', opts:['$3x^2\\ln x$', '$3x^2\\ln x+x^2$', '$x^2(3\\ln x+1)$', '$3x^2$'], ans:2, exp:'乘法法则：$3x^2\\ln x+x^3\\cdot\\tfrac1x=3x^2\\ln x+x^2=x^2(3\\ln x+1)$（A 漏了第二项）。'},
+{id:'q1', q:'$y=x^3\\ln x$ 的导数是？', opts:['$3x^2\\ln x$', '$3x^2\\ln x+x^3$', '$x^2(3\\ln x+1)$', '$3x^2$'], ans:2, exp:'乘法法则：$3x^2\\ln x+x^3\\cdot\\tfrac1x=3x^2\\ln x+x^2=x^2(3\\ln x+1)$（A 漏了第二项）。'},
 {id:'q2', q:'$y=\\dfrac{e^x}{x}$ 的导数是？', opts:['$\\dfrac{e^x(x-1)}{x^2}$', '$\\dfrac{e^x(x+1)}{x^2}$', '$e^x$', '$\\dfrac{e^x-1}{x^2}$'], ans:0, exp:'商法则：$\\tfrac{e^x x-e^x\\cdot1}{x^2}=\\tfrac{e^x(x-1)}{x^2}$。'},
 {id:'q3', q:'$(\\arctan x)\'$ 等于？', opts:['$\\dfrac{1}{\\sqrt{1+x^2}}$', '$\\dfrac{1}{1+x^2}$', '$-\\dfrac{1}{1+x^2}$', '$\\dfrac{1}{\\sqrt{1-x^2}}$'], ans:1, exp:'$(\\arctan x)\'=\\tfrac{1}{1+x^2}$；带根号的 $\\tfrac{1}{\\sqrt{1-x^2}}$ 是 arcsin 的导数。'}
 ]
