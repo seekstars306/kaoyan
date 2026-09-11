@@ -211,7 +211,7 @@ function renderQuiz(mount, opts){
     var correct = 0, answered = true;
     var picks = [];
     qs.forEach(function(q, qi){
-      var pick = document.querySelector('input[name=q'+qi+']:checked');
+      var pick = document.querySelector('input[name="q'+qi+'"]:checked');
       picks.push(pick ? +pick.value : -1);
       if(!pick) answered = false;
     });
@@ -302,7 +302,7 @@ function viewWrongbook(){
     $all('.w-check', el).forEach(function(btn){
       btn.onclick = function(){
         var d = btn.closest('.wrong-item'), id = d.dataset.qid, it = w[id];
-        var pick = document.querySelector('input[name=w_'+id+']:checked');
+        var pick = document.querySelector('input[name="w_'+id+'"]:checked');
         if(!pick){ toast('先选一个答案'); return; }
         pick = +pick.value;
         var ok = pick === it.ans;
@@ -660,7 +660,7 @@ function viewHome(){
   var stM = courseStats('math'), stE = courseStats('english'), stC = courseStats('cs408');
   var last = Sget(K.last, null);
   var due = dueWords().length, wrongN = Object.keys(Sget(K.wrong, {})).length;
-  var html = '<h1 class="page-title">👋 欢迎回来，未来的研究生 <span class="tag" style="font-size:12px;font-weight:normal;vertical-align:middle;margin-left:4px">v1.0.0</span></h1>'
+  var html = '<h1 class="page-title">👋 欢迎回来，未来的研究生 <span class="tag" style="font-size:12px;font-weight:normal;vertical-align:middle;margin-left:4px">v1.0.1</span></h1>'
     + '<p class="page-sub">今天是 '+new Date().toLocaleDateString('zh-CN',{year:'numeric',month:'long',day:'numeric',weekday:'long'})+' · 目标：2028 考研（'+s.examDate+'）</p>';
   html += '<div class="dash-hero">'
     + '<div class="card countdown-card"><div class="lbl">距 '+esc(s.examDate)+' 初试</div><div class="days">'+countdownDays()+'</div><div class="lbl">天</div><small>在 <a href="#/settings" style="color:#fff">设置</a> 中可修改日期</small></div>'
