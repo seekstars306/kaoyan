@@ -126,7 +126,7 @@ secs: [
 `<div class="ex-box"><div class="ex-t">例 1 猜读音：cap vs cape</div>
 <p><span class="speak-btn" data-speak="cap">cap</span>：闭音节，/æ/ 短音"帽子"。<span class="speak-btn" data-speak="cape">cape</span>：有魔法 e，/eɪ/ 长音"披风"。一个 e 之差，词义全变。</p></div>
 <div class="ex-box"><div class="ex-t">例 2 试读生词：station</div>
-<p>拆音节 sta-tion：重音在 tion 前一拍 → sta<b>TION</b> /ˈsteɪʃn/。没背过也能读对——这就是拼读的威力。</p></div>`],
+<p>拆音节 sta-tion：重音在 tion 前一拍 → <b>STA</b>tion /ˈsteɪʃn/（重音符号 ˈ 标在 steɪ 前，正说明重读第一音节）。没背过也能读对——这就是拼读的威力。</p></div>`],
 ['warn', '易错点',
 `<p>• 拼读规律覆盖约 80% 常用词，<b>例外词</b>（have, give, said…）要单独记。</p>
 <p>• 音节划分别把辅音串拆散：nation 是 na-tion 不是 nat-ion。</p>`]

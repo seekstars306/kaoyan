@@ -182,7 +182,7 @@ $$ \\sqrt{4.02}\\approx\\sqrt4+\\tfrac14\\times0.02=2+0.005=2.005 $$
 $$ dy = y\'dx = 2xe^{x^2}\\,dx $$
 </div>
 <div class="ex-box"><div class="ex-t">例 3（概念判断）"$f$ 在 $x_0$ 可导"与"$f$ 在 $x_0$ 可微"的关系？</div>
-<p>一元函数中二者<b>等价</b>：可导 $\\Rightarrow$ 可微（$A=f\'$）；可微 $\\Rightarrow$ 增量可线性近似 $\\Rightarrow$ 导数存在。多元函数中不再等价（可微强于偏导存在）。</p></div>`],
+<p>一元函数中二者<b>等价</b>：可导 $\\Rightarrow$ 可微（$A=f\'$）；可微 $\\Rightarrow$ 增量可线性近似 $\\Rightarrow$ 导数存在。多元函数中不再等价（可微强于偏导存在——“偏导数”是第 6 章多元函数的概念，这里只需记住一元的等价结论）。</p></div>`],
 ['warn', '易错点',
 `<p>• $\\Delta y$ 与 $dy$ 不是一回事：$\\Delta y=dy+o(\\Delta x)$，差的高阶项在小增量时才可忽略。</p>
 <p>• 近似公式要求 $|\\Delta x|$ 足够小，且在 $x_0$ 附近；拿 $\\sqrt{402}\\approx20.05$ 就是把"小"用错了。</p>

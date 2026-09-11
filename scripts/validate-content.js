@@ -390,6 +390,12 @@ function runRegressions() {
   expectContains('content/math/ch07.js', ['$-\\\\dfrac{1}{2}\\\\iint_D (x^2+y^2)d\\\\sigma$'], 'rotation-symmetry-option-unique');
   expectContains('content/english/m0.js', ["'pen / pan'"], 'long-short-vowel-distractor');
   expectContains('content/english/m2.js', ["opts:['which', 'what', 'when', 'where'], ans:2"], 'relative-adverb-unique');
+  /* 2026-09-11 三轮脉络复查:表述与知识点一致性 */
+  expectContains('content/english/m0.js', ['<b>STA</b>tion /ˈsteɪʃn/'], 'station-stress-consistent');
+  expectContains('content/english/m7.js', ['exactly quadrupling over the period'], 'chart-multiple-exact');
+  expectContains('content/english/m7.js', ['两个简单句合并为一句'], 'upgrade-description-accurate');
+  expectContains('content/cs408/ds/ch06.js', ['右孩子 35'], 'avl-lr-final-shape');
+  expectContains('content/math/ch02.js', ['“偏导数”是第 6 章多元函数的概念'], 'forward-ref-marked');
 }
 
 function main() {

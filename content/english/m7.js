@@ -95,8 +95,8 @@ secs: [
 <p class="muted">篇幅应以当年题目给出的要求为准。练习时可用“描述—分析—总结”检查结构是否完整，但各段字数不必机械固定。</p>`],
 ['ex', '例题精讲',
 `<div class="ex-box"><div class="ex-t">例：柱状图（某市快递量 2020-2024）第一段示范</div>
-<p><span class="speak-btn" data-speak="What is clearly presented in the bar chart is the remarkable growth of express delivery in City X from 2020 to 2024. Specifically, the volume climbed from 2 billion to 8 billion, nearly quadrupling within five years.">What is clearly presented in the bar chart is the remarkable growth of express delivery in City X from 2020 to 2024. Specifically, the volume climbed from 2 billion to 8 billion, nearly quadrupling within five years.</span></p>
-<p>结构：主题 + 时间范围（is the growth of… from… to…）+ 具体数据 + 倍数概括（nearly quadrupling）。两句拿下第一段。</p></div>
+<p><span class="speak-btn" data-speak="What is clearly presented in the bar chart is the remarkable growth of express delivery in City X from 2020 to 2024. Specifically, the volume climbed from 2 billion to 8 billion, exactly quadrupling over the period.">What is clearly presented in the bar chart is the remarkable growth of express delivery in City X from 2020 to 2024. Specifically, the volume climbed from 2 billion to 8 billion, exactly quadrupling over the period.</span></p>
+<p>结构：主题 + 时间范围（is the growth of… from… to…）+ 具体数据 + 倍数概括（exactly quadrupling）。两句拿下第一段。</p></div>
 <div class="ex-box"><div class="ex-t">例：第二段原因分析起手</div>
 <p>The reasons behind this surge are not far to seek. First and foremost, the boom of e-commerce has created enormous demand for delivery services. In addition, the improvement of logistics networks has made door-to-door service possible even in rural areas.</p></div>`],
 ['warn', '易错点',
@@ -133,7 +133,7 @@ secs: [
 `<div class="ex-box"><div class="ex-t">例：同一句的低配与高配对比</div>
 <p>低配：More and more people use mobile payment. It is convenient.</p>
 <p>高配：Mobile payment has gained increasing popularity, <b>chiefly because</b> it <b>offers</b> consumers unprecedented convenience <b>that</b> traditional cash can never match.</p>
-<p>变化点：there be 罗列 → 现在完成时 + because 换 chiefly because + 定语从句收尾。</p></div>`],
+<p>变化点：两个简单句合并为一句；主语从“人”换成抽象名词 Mobile payment 并把时态升级为现在完成时（has gained increasing popularity）；because 换 chiefly because；最后用 that 定语从句收尾。</p></div>`],
 ['aiw', '🤖 AI 作文批改实战', 'essay', null
 ],
 ['warn', '易错点',
